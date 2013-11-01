@@ -1,3 +1,3 @@
-function [r] = phiprime(v, alpha)
-	r = arrayfun(@(v, alpha) phi(v, alpha) * (1 - phi(v, alpha)), v, alpha);
+function [r] = phiprime(v)
+	r = arrayfun(@(v) phi(v) * (1 - phi(v)), v);
 end
