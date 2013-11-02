@@ -16,4 +16,7 @@ for i = 1:power(10, 4) % Will take 2.5 hours
 end
 toc
 
+% Four instances of matlab
+% took 30 minutes
+% success = 45; % = 9+12+12+12
 ac = success / power(10, 7)
