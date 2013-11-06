@@ -108,7 +108,9 @@ xornet(0, 0, w)
 xornet(1, 1, w)
 xornet(1, 0, w)
 xornet(0, 1, w)
-toc
+trials = i
+w
+toc % Takes around 75 - 120 seconds
 %ac = success / (success + fail)
 
 %/*
