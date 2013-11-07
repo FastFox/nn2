@@ -19,12 +19,12 @@ function [d] = dmysse(w)
     net = y1*w(5) + y2*w(6); y = phi(net);
 
     du1 = (y - d) * phiprime(net) * y1;
-	  du2 = (y - d) * phiprime(net) * y2;
+    du2 = (y - d) * phiprime(net) * y2;
 
-	  dw1 = (y - d) * phiprime(net) * u1 * phiprime(net1) * x1;
-	  dw2 = (y - d) * phiprime(net) * u1 * phiprime(net1) * x2;
+    dw1 = (y - d) * phiprime(net) * u1 * phiprime(net1) * x1;
+    dw2 = (y - d) * phiprime(net) * u1 * phiprime(net1) * x2;
 
-	  dv1 = (y - d) * phiprime(net) * u2 * phiprime(net2) * x1;
+    dv1 = (y - d) * phiprime(net) * u2 * phiprime(net2) * x1;
     dv2 = (y - d) * phiprime(net) * u2 * phiprime(net2) * x2;
 
    	 
