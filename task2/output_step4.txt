@@ -1,29 +1,29 @@
 Function 1:
 Average function evaluations: 101
 Average gradient evaluations: 100
-Average runtime: 1.0016
+Average runtime: 0.99903
 Average successrate: 0%
  
 Function 2:
-Average function evaluations: 1668.58
+Average function evaluations: 1643.08
 Average gradient evaluations: 100
-Average runtime: 2.5055
+Average runtime: 2.4852
 Average successrate: 0%
  
 Function 3:
-Average function evaluations: 70.25
-Average gradient evaluations: 127.08
-Average runtime: 1.2195
+Average function evaluations: 73.64
+Average gradient evaluations: 135.09
+Average runtime: 1.2969
 Average successrate: 0%
  
 Function 4:
-Average function evaluations: 1933.87
-Average gradient evaluations: 80.18
-Average runtime: 2.5677
-Average successrate: 0.11%
+Average function evaluations: 1865.19
+Average gradient evaluations: 80.83
+Average runtime: 2.5118
+Average successrate: 0.14%
  
 Function 5:
-Average function evaluations: 277.38
-Average gradient evaluations: 82.21
-Average runtime: 1.0166
-Average successrate: 0.07%
+Average function evaluations: 251.06
+Average gradient evaluations: 87.23
+Average runtime: 1.0358
+Average successrate: 0.17%

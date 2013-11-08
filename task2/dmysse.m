@@ -41,6 +41,8 @@ function [d] = dmysse(w)
     %dv2 = (y - d) * phiprime(net) * w(6) * phiprime(net2) * x2;\
     
   end
+  
+  d = d * 2; % Because of the 0.5 in the slide
 
 
 end
