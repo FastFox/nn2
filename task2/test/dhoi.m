@@ -1,5 +1,5 @@
-function [dx, dy, dz] = dhoi(x, y, z)
-	dx = 1;
-	dy = 2 * y;
-	dz = 3 * power(z, 2);
+function [d] = dhoi(x)
+	d(1) = 1;
+	d(2) = 2 * x(2);
+	d(3) = 3 * power(x(3), 2);
 end
