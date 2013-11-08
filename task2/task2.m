@@ -4,8 +4,12 @@ clear all;
 %alpha = 1; % Defined in alpha.m
 etha = 0.1;
 
+% Random seed
+
 input = [0, 0; 0, 1; 1, 0; 1, 1];
+%input = [-1, -1; -1, 1; 1, -1; 1, 1];
 target = [0, 1, 1, 0];
+%target = [-1, 1, 1, -1];
 w = randn(1, 6); % w1, w2, v1, v2, u1, u2
 w1 = w(1);
 w2 = w(2);
