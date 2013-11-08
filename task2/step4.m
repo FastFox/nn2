@@ -1,5 +1,5 @@
-function task_1()
-    starting_point = randn(100,6)
+function step4()
+    starting_point = randn(100,6);
     
     options = foptions;         % Standard options
     options(1) = -1;            % Turn off printing completely
