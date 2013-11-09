@@ -51,7 +51,7 @@ For the first task, we were given the Rosenbrock's function, and we were asked t
 \newpage
 \section{Task 1: Function Optimization}
 \subsection{Problem Description}
-The Rosenbrock function is a function that is used as a performance test for optimization algorithms. It has a global minimum at the point (1,1), where the value of $f = 0$. The equation can be found in figure \ref{eq:rosen}. \\
+The Rosenbrock function is a function that is used as a performance test for optimization algorithms. The equation can be found in figure \ref{eq:rosen}. It has a global minimum at the point (1,1), where the value of $f = 0$. This is visualized in figure \ref{fig:rosenbrock}. \\
 
 \begin{figure}[H]
 \[f(x,y) = 100 * (y-x^2)^2 + (1 - x)^2\]
@@ -59,11 +59,13 @@ The Rosenbrock function is a function that is used as a performance test for opt
 \label{eq:rosen}
 \end{figure}
 
-
-
 We were given the task to optimize the Rosenbrock function using five different algorithms, and subsequently compare their performance, in order to get an insight into the advantages, disadvantages and limitations of the different algorithms.\\
 
-%Plot van Rosenbrock's Function + starting points
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.8]{rosenbrock.png}
+	\label{fig:rosenbrock}
+\end{figure}
 
 The 5 different algorithms we tested are:
 \begin{itemize}
@@ -77,6 +79,7 @@ The 5 different algorithms we tested are:
 To get a good comparison between the algorithms, each algorithm was run 100 times.
 We first generated 100 random points around (-1,1) as starting points. Each algorithm was started from the same random point.\\
 
+\newpage
 There were 4 different measures to compare the algorithms with:
 \begin{itemize}
 \item The average number of evaluations of $f$
@@ -85,9 +88,9 @@ There were 4 different measures to compare the algorithms with:
 \item The average ``success rate''. 
 \end{itemize}
 
-Together these measures should provide a decent indication which algorithm performs better. Not all functions are as easy to evaluate as the Rosenbrock function, and some might be computationally very expensive to evaluate
+Together these measures should provide a decent indication which algorithm performs better. Because some functions might be a lot more computationally expensive to evaluate than the Rosenbrock function, the number of evaluations of both the function and the gradient should be as low as possible. A run obviously shouldn't take too long, and it should have a high success rate. \\
 
-The success rate is measured as reaching the minimum with an accuracy of 0.0001. This means that when the optimal point found by the algorithm is evaluated, the value of $f$ is smaller than 0.0001.
+The success rate is measured as reaching the minimum with an accuracy of 0.0001. This means that when the optimal point found by the algorithm is evaluated, the value of $f$ is smaller than 0.0001. Of course we would like to have an optimizer that gets a 100\% accuracy every time the algorithm is ran, but that is not always possible. 
 
 \subsection{Implementation}
 %Options
