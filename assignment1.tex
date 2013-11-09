@@ -1,0 +1,130 @@
+\documentclass{article}
+
+\setlength{\textheight}{25.7cm}
+\setlength{\textwidth}{16cm}
+\setlength{\unitlength}{1mm}
+\setlength{\topskip}{2.5truecm}
+\topmargin 260mm \advance \topmargin -\textheight 
+\divide \topmargin by 2 \advance \topmargin -1in 
+\headheight 0pt \headsep 0pt \leftmargin 210mm \advance
+\leftmargin -\textwidth 
+\divide \leftmargin by 2 \advance \leftmargin -1in 
+\oddsidemargin \leftmargin \evensidemargin \leftmargin
+\parindent=0pt
+
+\frenchspacing
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\restylefloat{table}
+
+\usepackage{listings}
+\lstset{language=C++, showstringspaces=false, basicstyle=\small,
+  numbers=left, numberstyle=\tiny, numberfirstline=false,
+  stepnumber=1, tabsize=4, 
+  commentstyle=\ttfamily, identifierstyle=\ttfamily,
+  stringstyle=\itshape}
+
+\title{Neural Networks: Assignment 2}
+\author{Pepijn van Heiningen \\ \texttt{pvheinin@liacs.nl} \and Michiel Vos \\ \texttt{msvos@liacs.nl}}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The second assignment of the Neural Networks course consits of three tasks:\\
+\begin{itemize}
+\item Task 1: Function Optimization
+\item Task 2: The XOR Problem
+\item Task 3: Handwritten digit recognition
+\end{itemize}
+
+For the first task, we were given the Rosenbrock's function, and we were asked to test 5 different algorithms for finding the global minimum of this function. 
+
+%Task 2
+
+%Task 3
+
+\newpage
+\section{Task 1: Function Optimization}
+\subsection{Problem Description}
+The Rosenbrock function is a function that is used as a performance test for optimization algorithms. It has a global minimum at the point (1,1), where the value of $f = 0$. The equation can be found in figure \ref{eq:rosen}. \\
+
+\begin{figure}[H]
+\[f(x,y) = 100 * (y-x^2)^2 + (1 - x)^2\]
+\caption{The Rosenbrock's function}
+\label{eq:rosen}
+\end{figure}
+
+
+
+We were given the task to optimize the Rosenbrock function using five different algorithms, and subsequently compare their performance, in order to get an insight into the advantages, disadvantages and limitations of the different algorithms.\\
+
+%Plot van Rosenbrock's Function + starting points
+
+The 5 different algorithms we tested are:
+\begin{itemize}
+\item Gradient descent
+\item Gradient descent with line search
+\item Scaled conjugate gradient
+\item Conjugate gradient
+\item Quasi-Newton
+\end{itemize}
+
+To get a good comparison between the algorithms, each algorithm was run 100 times.
+We first generated 100 random points around (-1,1) as starting points. Each algorithm was started from the same random point.\\
+
+There were 4 different measures to compare the algorithms with:
+\begin{itemize}
+\item The average number of evaluations of $f$
+\item The average number of evaluations of the gradient of $f$
+\item The average run time of the algorithm
+\item The average ``success rate''. 
+\end{itemize}
+
+Together these measures should provide a decent indication which algorithm performs better. Not all functions are as easy to evaluate as the Rosenbrock function, and some might be computationally very expensive to evaluate
+
+The success rate is measured as reaching the minimum with an accuracy of 0.0001. This means that when the optimal point found by the algorithm is evaluated, the value of $f$ is smaller than 0.0001.
+
+\subsection{Implementation}
+%Options
+%Partial derivatives of f
+
+\subsection{Experiments}
+
+%Gradient descent experiments
+
+In order to acquire additional insights into how the algorithms work, we plotted the optimal points found after each iteration in the following plot.
+
+%Plot
+
+%Table summary of experiments
+
+\subsection{Conclusions}
+
+\newpage
+\section{Task 2: The XOR Problem}
+\subsection{Problem Description}
+
+\subsection{Implementation}
+
+\subsection{Experiments}
+
+\subsection{Conclusions}
+
+\newpage
+\section{Task 3: Handwritten Digit Recognition with MLP}
+\subsection{Problem Description}
+
+\subsection{Implementation}
+
+\subsection{Experiments}
+
+\subsection{Conclusions}
+
+
+
+\end{document}
