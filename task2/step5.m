@@ -20,3 +20,5 @@ toc
 % took 30 minutes
 % success = 45; % = 9+12+12+12
 ac = success / power(10, 7)
+
+% No, only 8 in 235 minutes with 4 cores. 
