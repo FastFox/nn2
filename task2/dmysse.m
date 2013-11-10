@@ -12,10 +12,10 @@ function [d] = dmysse(w)
     net = w(5) * y1 + w(6) * y2; 
 		y = phi(net);
 
-    d(1) = d(1) + (y - target(i)) * phiprime(net) * w(5) * phiprime(net1) * x1;
-    d(2) = d(2) + (y - target(i)) * phiprime(net) * w(5) * phiprime(net1) * x2;
-    d(3) = d(3) + (y - target(i)) * phiprime(net) * w(6) * phiprime(net2) * x1;
-    d(4) = d(4) + (y - target(i)) * phiprime(net) * w(6) * phiprime(net2) * x2;
+    d(1) = d(1) + (y - target(i)) * phiprime(net) * w(5) * phiprime(net1) * input(i, 1);
+    d(2) = d(2) + (y - target(i)) * phiprime(net) * w(5) * phiprime(net1) * input(i, 2);
+    d(3) = d(3) + (y - target(i)) * phiprime(net) * w(6) * phiprime(net2) * input(i, 1);
+    d(4) = d(4) + (y - target(i)) * phiprime(net) * w(6) * phiprime(net2) * input(i, 2);
     d(5) = d(5) + (y - target(i)) * phiprime(net) * y1;
     d(6) = d(6) + (y - target(i)) * phiprime(net) * y2;
   end
