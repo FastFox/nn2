@@ -12,6 +12,9 @@ function task_1()
     results = zeros(100,5,4);   %experiment, algorithm, output (1=eval, 2=gradeval,3=runtime,4=successrate)
     
     functionList = {@graddesc, @graddesc, @scg, @conjgrad, @quasinew};
+
+    plotdinges = zeros(100,2,5);
+    
     for i = 1:100
         disp(i);
         for j = 1:5
@@ -23,7 +26,20 @@ function task_1()
                 options(7) = 1;
             end
             tic;
-            [dump, options, dump, dump] = functionList{j}('rosen', starting_point(i,:), options, 'rosegrad');
+            [dump, options, dump, plottest] = functionList{j}('rosen', starting_point(i,:), options, 'rosegrad');
+            if(size(plottest,1)<100)
+                for i=size(plottest,1):100
+                    plottest(i,:) = [0 0];
+                end
+            end       
+            if(options(10)>100)
+                einde = 100;
+            else
+                einde = options(10);
+            end
+            
+            plotdinges(1:einde,:,j) = plottest(1:einde,:); 
+            
             time = toc;
             results(i,j,1) = options(10);
             results(i,j,2) = options(11);
@@ -31,23 +47,36 @@ function task_1()
             results(i,j,4) = options(8);
         end 
     end  
-    
-    %TESTEN VAN OPTIONS(18) geeft:
-    % 0.05: 0 0.054 (avg over 500)    
-    % 0.01: 0 0.058 (avg over 500)
-    % 0.008: 0 0.058 (avg over 500)
-    % 0.005: 0 0.056 (avg over 500)
-    % 0.001: 0.002 0.038 (avg over 500)
-    % 0.0001: 0 0.052 (avg over 500)
-    % 0.00001: 0 0.050 (avg over 500)
-    
+      
     for i = 1:5
         disp(' ');
         disp(['Function ' num2str(i) ':']); 
         disp(['Average function evaluations: ' num2str(mean(results(:,i,1)))]);
         disp(['Average gradient evaluations: ' num2str(mean(results(:,i,2)))]);
         disp(['Average runtime: ' num2str(mean(results(:,i,3)))]);
-        disp(['Average successrate: ' num2str(sum(results(:,i,4) < 0.0001)/100) '%']);
+        disp(['Average successrate: ' num2str(sum(results(:,i,4) < 0.0001)) '%']);
     end
-    
+    a = -1.5:.02:1.5;
+    b = -0.5:.02:2.1;
+    [A, B] = meshgrid(a, b);
+    Z = rosen([A(:), B(:)]);
+    Z = reshape(Z, length(b), length(a));
+    l = -1:6;
+    v = 2.^l;
+    fh1 = figure;
+    contour(a, b, Z, v)
+    title('Contour plot of Rosenbrock''s function')
+    hold on
+    plot(nonzeros(plotdinges(:,1,1)), nonzeros(plotdinges(:,2,1)), 'r','LineWidth',3);
+    plot(nonzeros(plotdinges(:,1,2)), nonzeros(plotdinges(:,2,2)), 'g','LineWidth',3);
+    hold off
+       
+%     fh2 = figure;
+%     contour(a, b, Z, v)
+%     title('Contour plot of Rosenbrock''s function')
+%     hold on    
+%     plot(nonzeros(plotdinges(:,1,3)), nonzeros(plotdinges(:,2,3)), 'black','LineWidth',3)
+%     plot(nonzeros(plotdinges(:,1,4)), nonzeros(plotdinges(:,2,4)), 'g','LineWidth',3)
+%     plot(nonzeros(plotdinges(:,1,5)), nonzeros(plotdinges(:,2,5)), 'y', 'LineWidth',3)    
+%     hold off
 end

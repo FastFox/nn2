@@ -18,6 +18,7 @@
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{subcaption}
 \restylefloat{table}
 
 \usepackage{listings}
@@ -42,7 +43,7 @@ The second assignment of the Neural Networks course consits of three tasks:\\
 \item Task 3: Handwritten digit recognition
 \end{itemize}
 
-For the first task, we were given the Rosenbrock's function, and we were asked to test 5 different algorithms for finding the global minimum of this function. 
+For the first task, we were given the Rosenbrock's function, and we were asked to test 5 different algorithms for finding the global minimum of this function. The purpose is to get an insight into the limitations of the classical gradient descent algorithm. 
 
 %Task 2
 
@@ -64,6 +65,7 @@ We were given the task to optimize the Rosenbrock function using five different 
 \begin{figure}[H]
 	\centering
 		\includegraphics[scale=0.8]{rosenbrock.png}
+	\caption{The Rosenbrock function, with minimal point}
 	\label{fig:rosenbrock}
 \end{figure}
 
@@ -93,18 +95,114 @@ Together these measures should provide a decent indication which algorithm perfo
 The success rate is measured as reaching the minimum with an accuracy of 0.0001. This means that when the optimal point found by the algorithm is evaluated, the value of $f$ is smaller than 0.0001. Of course we would like to have an optimizer that gets a 100\% accuracy every time the algorithm is ran, but that is not always possible. 
 
 \subsection{Implementation}
+In figure \ref{fig:code} you can see the pseudo-code of the implemented algorithm.
+
+\begin{figure}[h]
+\begin{verbatim}
+    starting_point = repmat([-1,1],100,1) + 0.5*randn(100,2);
+    options = foptions;         % Standard options
+    options(1) = -1;            % Turn off printing completely
+    options(3) = 1e-8;          % Tolerance in value of function
+    options(14) = 100;          % Max. 100 iterations of algorithm
+    options(18) = 0.001;        % Learning rate    
+    default_options = options;		
+    functionList = {@graddesc, @graddesc, @scg, @conjgrad, @quasinew};
+    for i = 1:100
+        for j = 1:5
+            options = default_options;
+            if(j==1 || j==2)
+                options(18) = 0.008;
+            end
+            if(j==2)
+                options(7) = 1;
+            end
+            tic;
+            [dump, options, dump, dump] = functionList{j}('rosen', starting_point(i,:), options, 'rosegrad');
+            time = toc;
+            results(i,j,1) = options(10);
+            results(i,j,2) = options(11);
+            results(i,j,3) = time;
+            results(i,j,4) = options(8);
+        end 
+    end  
+\end{verbatim}
+\caption{Pseudo-code of task 1.}
+\label{fig:code}
+\end{figure}
+
+As described in the assignment, we run the algorithms using 100 randomly generated starting points from the distribution \texttt{[-1, 1] + 0.5 * randn(1,2)}. 
+
+We set the options of the algorithm to the default options, with a few changes, we set the tolerance of the function value to $1*10^{-8}$, the iterations to 100, and we use a different learning rate for the two gradient descent algorithms. The reasoning behind the value is described in section \ref{sec:experiments}.
 %Options
 %Partial derivatives of f
 
 \subsection{Experiments}
-
+\label{sec:experiments}
 %Gradient descent experiments
+In task $1.3$ we were asked to tune both gradient descent algorithms manually. We set the number of iterations to 100.000, and tested different values of the learing rate.
+
+\begin{table*}[H]
+	\centering
+		\begin{tabular}{l|l|l}
+		Learning rate & Gradient Descent & Gradient Descent with linesearch \\
+		\hline
+		0.05 & 0 & 0.054 \\
+		0.01 & 0 & 0.058 \\
+		0.008 & 0 & 0.058 \\
+		0.005 & 0 & 0.056 \\
+		0.001 & 0 & 0.038 \\
+		0.0001 & 0 & 0.052 \\
+		0.00001 & 0 & 0.050 \\
+		\end{tabular}
+\end{table*}
+    
+The values are averages over 500 runs. As you can see the optimal error is somewhere around a learning rate of 0.008, which is why we set the learning rate for the experiment to that value.
 
 In order to acquire additional insights into how the algorithms work, we plotted the optimal points found after each iteration in the following plot.
 
-%Plot
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{D:/Uni/nn2/rosenbrocktask1.png}
+		\caption{Nadenken}
+		\label{fig:rosenbrocktask1}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{D:/Uni/nn2/rosenbrocktask12.png}
+		\caption{Nadenken}
+		\label{fig:rosenbrocktask1}
+	\end{subfigure}	
+\end{figure}
 
-%Table summary of experiments
+%Function 1:
+%Average function evaluations: 101
+%Average gradient evaluations: 100
+%Average runtime: 0.0077814
+%Average successrate: 0%
+ %
+%Function 2:
+%Average function evaluations: 1816.93
+%Average gradient evaluations: 98
+%Average runtime: 0.19121
+%Average successrate: 6%
+ %
+%Function 3:
+%Average function evaluations: 0.47
+%Average gradient evaluations: 0.7
+%Average runtime: 5.3761e-05
+%Average successrate: 100%
+ %
+%Function 4:
+%Average function evaluations: 3.64
+%Average gradient evaluations: 0.25
+%Average runtime: 0.0003921
+%Average successrate: 100%
+ %
+%Function 5:
+%Average function evaluations: 0.69
+%Average gradient evaluations: 0.22
+%Average runtime: 7.9669e-05
+%Average successrate: 100%
 
 \subsection{Conclusions}
 
