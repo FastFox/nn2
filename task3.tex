@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\def\layersep{3.5cm}
+
+\section{Task 3}
+
+\subsection{Activation functions}
+
+Als ik het goed heb. Maar y heeft ook elke keer weer andere waardes, maar we moeten het als formule houden en niet als pseudocode. Ik weet dus niet hoe uitgebreid die het wil. 
+
+\begin{figure}[!h]
+	\centering
+%	edata = 0.5*sum(sum((y - t).^2));
+	\begin{eqnarray}
+		error & = & y - t \\
+		error & = & t * log(y) + (1 - t) * log(1 - y) \\
+		error & = & t * log(y)
+	\end{eqnarray}
+	\caption{Error measurements in multiple activation functions. (1) Logistic (2) Logistic (3) Softmax }
+\end{figure}
+
+
+\end{document}
+
