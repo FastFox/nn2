@@ -10,9 +10,8 @@ function step4()
     default_options = options;
     
     results = zeros(100,5,4);   %experiment, algorithm, output (1=eval, 2=gradeval,3=runtime,4=successrate)
-    
     functionList = {@graddesc, @graddesc, @scg, @conjgrad, @quasinew};
-    for i = 1:100
+    for i = 1:1
         disp(i);
         for j = 1:5
             options = default_options;
