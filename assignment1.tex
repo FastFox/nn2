@@ -133,8 +133,16 @@ In figure \ref{fig:code} you can see the pseudo-code of the implemented algorith
 As described in the assignment, we run the algorithms using 100 randomly generated starting points from the distribution \texttt{[-1, 1] + 0.5 * randn(1,2)}. 
 
 We set the options of the algorithm to the default options, with a few changes, we set the tolerance of the function value to $1*10^{-8}$, the iterations to 100, and we use a different learning rate for the two gradient descent algorithms. The reasoning behind the value is described in section \ref{sec:experiments}.
-%Options
 %Partial derivatives of f
+
+\begin{figure}[H]
+\[\frac{\rho f}{\rho x} = 400x^3 + 2x - 400*yx - 2\]
+\[\frac{\rho f}{\rho y} = 200y - 200*x^2\]
+\caption{Partial derivatives of $f$}
+\label{fig:partdiv}
+\end{figure}
+
+In figure \ref{fig:partdiv}, we show the partial derivatives of the Rosenbrock function.
 
 \subsection{Experiments}
 \label{sec:experiments}
@@ -203,6 +211,11 @@ In order to acquire additional insights into how the algorithms work, we plotted
 %Average gradient evaluations: 0.22
 %Average runtime: 7.9669e-05
 %Average successrate: 100%
+
+%Which algorithm is best? Which is worst?
+%What is the expected number of function evaluations (including evaluations of gradients)
+%needed to reach the optimum? What might be the reason for the very poor performance
+%of the gradient descent algorithm?
 
 \subsection{Conclusions}
 
