@@ -219,6 +219,22 @@ $w_6$ & 0.181319698693786 & 0.181319698588922 & 0.000000000104864 \\ \hline
 	\label{table:gradchek}
 \end{table}
 
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{| l | l | l | l |}
+		\hline
+		Weight & Analytic & Diffs & Delta \\ \hline
+$w_1$ & -0.0050 & -0.0050 & $5.4682*10^{-11}$ \\ \hline
+$w_2$ & -0.0032 & -0.0032 & $1.1398*10^{-10}$ \\ \hline
+$w_3$ & 0.06435 & 0.06435 & $-1.8951*10^{-11}$ \\ \hline
+$w_4$ & 0.04339 & 0.04339 & $-3.2260*10^{-11}$ \\ \hline
+$w_5$ & 0.18566 & 0.18566 & $6.0969*10^{-11}$ \\ \hline
+$w_6$ & 0.18131 & 0.18131 & $1.0486*10^{-10}$ \\ \hline
+	\end{tabular}
+	\caption{Results of the gradchek function.}
+	\label{table:gradchek2}
+\end{table}
+
 \subsection{Experiments}
 We ran all 5 algorithms for 100 iterations, starting from a random point. This is done 100 times to get the averages of the function evaluations, gradient evaluation and the successrate. The relative amount of times an algorithm is successful after 100 iterations is the successrate. An algorithm is succesful when it can predict all four scenarios correct. Listing~\ref{eq:success} gives more details about this definition. The results are in Table~\ref{table:results}. 
 
