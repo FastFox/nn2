@@ -135,14 +135,13 @@ As described in the assignment, we run the algorithms using 100 randomly generat
 We set the options of the algorithm to the default options, with a few changes, we set the tolerance of the function value to $1*10^{-8}$, the iterations to 100, and we use a different learning rate for the two gradient descent algorithms. The reasoning behind the value is described in section \ref{sec:experiments}.
 %Partial derivatives of f
 
+In figure \ref{fig:partdiv}, we show the partial derivatives of the Rosenbrock function.
 \begin{figure}[H]
 \[\frac{\rho f}{\rho x} = 400x^3 + 2x - 400*yx - 2\]
 \[\frac{\rho f}{\rho y} = 200y - 200*x^2\]
 \caption{Partial derivatives of $f$}
 \label{fig:partdiv}
 \end{figure}
-
-In figure \ref{fig:partdiv}, we show the partial derivatives of the Rosenbrock function.
 
 \subsection{Experiments}
 \label{sec:experiments}
@@ -221,13 +220,55 @@ The reason for the very poor performance of the gradient descent algorithm is pr
 
 \newpage
 \section{Task 3: Handwritten Digit Recognition with MLP}
+%The purpose of this task is to compare the accuracy of MLP networks to the single layer
+%networks that you’ve investigated in Assignment 1. Train several MLP networks with the
+%number of hidden nodes ranging between 1 and 100 (not all!) and 10 output nodes. Chose
+%a suitable number of hidden nodes experimentally and a training method that is suﬃciently
+%fast. Try three possible activation functions for the output nodes: linear, logistic and
+%softmax (study the code of mlp.m to get more details). To make sure that you understand
+%what is optimized during the training process, study the function mlperr.m to ﬁnd out which
+%error measures correspond to the three activation functions. Write down in your report the
+%deﬁnitions (formulas) of these error measures.
+%Summarize the results of your experiments in a table. What setup was most successful?
+%What classiﬁcation rate have you achieved?
+In task 3 we had to compare the Multilayer Perceptron networks to the single layer networks we've investigated in Assignment 1.
+
 \subsection{Problem Description}
+We were given the handwritten digits dataset from Assignment 1 again, and were now asked to implement a multilayer perceptron network, and train it to recognize handwritten digits.
+The goal is of course to achieve the highest classification rate posssible.
 
 \subsection{Implementation}
+%Pseudocode
+
 
 \subsection{Experiments}
+We first tried to find the best number of hidden nodes. In the plot of \ref{fig:hidden_nodes} you can see that the softmax activation function yields the best results. We set the number of training iterations to 100 as a first try, and used the Scaled Conjugate Gradient as a training method. 
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=\textwidth]{hidden_nodes.png}
+    \caption{Nadenken}
+    \label{fig:hidden_nodes}
+\end{figure}
+
+To check whether there are differences between the Scaled Conjugate Gradient method, Quasi-Newton and Backpropagation, we show the classification rates and runtime in table ...
+
+Finally we used cross-validation to train the network to get the optimal classification rate.
+
+\subsubsection{Activation functions}
+\begin{figure}[H]
+	\centering
+%	edata = 0.5*sum(sum((y - t).^2));
+	\begin{eqnarray}
+		error & = & y - t \\
+		error & = & t * log(y) + (1 - t) * log(1 - y) \\
+		error & = & t * log(y)
+	\end{eqnarray}
+	\caption{Error measurements in multiple activation functions. (1) Logistic (2) Logistic (3) Softmax }
+\end{figure}
 
 \subsection{Conclusions}
+As you can see in section ... blabla
 
 
 
