@@ -147,7 +147,7 @@ In figure \ref{fig:partdiv}, we show the partial derivatives of the Rosenbrock f
 \subsection{Experiments}
 \label{sec:experiments}
 %Gradient descent experiments
-In task $1.3$ we were asked to tune both gradient descent algorithms manually. We set the number of iterations to 100.000, and tested different values of the learing rate.
+In task $1.3$ we were asked to tune both gradient descent algorithms manually. We first kept the number of iterations to 100, and tested different values of the learing rate.
 
 \begin{table*}[H]
 	\centering
@@ -164,60 +164,50 @@ In task $1.3$ we were asked to tune both gradient descent algorithms manually. W
 		\end{tabular}
 \end{table*}
     
-The values are averages over 500 runs. As you can see the optimal error is somewhere around a learning rate of 0.008, which is why we set the learning rate for the experiment to that value.
+The values are averages over 500 runs. We then tested the best value on 100 runs with 100.000 iterations, and the gradient descent algorithm with line search reached an accuracy of 100\%. The standard gradient descent still got 0\%.
+As you can see the optimal error is somewhere around a learning rate of 0.008, which is why we set the learning rate for the experiment to that value.
 
 In order to acquire additional insights into how the algorithms work, we plotted the optimal points found after each iteration in the following plot.
 
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{D:/Uni/nn2/rosenbrocktask1.png}
+		\includegraphics[width=\textwidth]{rosenbrocktask1.png}
 		\caption{Nadenken}
 		\label{fig:rosenbrocktask1}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{D:/Uni/nn2/rosenbrocktask12.png}
+		\includegraphics[width=\textwidth]{rosenbrocktask12.png}
 		\caption{Nadenken}
 		\label{fig:rosenbrocktask1}
 	\end{subfigure}	
 \end{figure}
 
-%Function 1:
-%Average function evaluations: 101
-%Average gradient evaluations: 100
-%Average runtime: 0.0077814
-%Average successrate: 0%
- %
-%Function 2:
-%Average function evaluations: 1816.93
-%Average gradient evaluations: 98
-%Average runtime: 0.19121
-%Average successrate: 6%
- %
-%Function 3:
-%Average function evaluations: 0.47
-%Average gradient evaluations: 0.7
-%Average runtime: 5.3761e-05
-%Average successrate: 100%
- %
-%Function 4:
-%Average function evaluations: 3.64
-%Average gradient evaluations: 0.25
-%Average runtime: 0.0003921
-%Average successrate: 100%
- %
-%Function 5:
-%Average function evaluations: 0.69
-%Average gradient evaluations: 0.22
-%Average runtime: 7.9669e-05
-%Average successrate: 100%
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| l | l | l | l | l |}
+		\hline
+		Function                        & Evaluation  & Gradient evaluation & Runtime & Successrate \\ \hline
+		Gradient descent                & 101         & 100  & 0.00778          & 0\% \\ \hline
+		Gradient descent /w line search & 1816.93     & 98   & 0.19121          & 6\% \\ \hline
+		Scaled conjugate gradient       & 0.47        & 0.7  & $5.376*10^{-5}$  & 100\% \\ \hline
+		Conjugate gradients             & 3.64        & 0.25 & 0.0003924        & 100\% \\ \hline
+		Quasi-Newton                    & 0.69        & 0.22 & $7.9669*10^{-5}$  & 100\% \\ \hline
+	\end{tabular}
+	\caption{Results of the 5 algorithms. All values are averages.}
+	\label{table:results}
+\end{table}
 
+In table \ref{table:results} you can find the results of the different algorithms. All 5 algorithms were run on an Intel Core i5-3470, the values are averages over 100 runs. The parameters used for the algorithms are described in the section `Implementation'. As you can see the gradient descent algorithm, even after optimization, still achieves a successrate of 0\% on the data. We took a look at the output-coordinates of the algorithm, and it shows that this setting of the learning rate is too high, because the coordinates keep growing until they reach infinity. Gradient descent with line search already works a lot better, but it costs more function evaluations. The other three methods clearly achieve better results on all fronts, with less evaluations, a shorter runtime and higher successrates.
+
+\subsection{Conclusions}
 %Which algorithm is best? Which is worst?
 %What is the expected number of function evaluations (including evaluations of gradients)
 %needed to reach the optimum? What might be the reason for the very poor performance
 %of the gradient descent algorithm?
-
-\subsection{Conclusions}
+The best algorithm is hard to tell. Both the Scaled Conjugate Gradient approach and the Quasi-Newton algorithm perform well on this particular problem. The Scaled Conjugate Gradient uses less function evaluations than Quasi-Newton, but Quasi-Newton uses less gradient evaluations. The runtime of both algorithms is almost equal, and they both achieve a successrate of 100\%. It depends on the computational difficulty of the problem which algorithms is better. If a function evaluation is costly, SCG might be the better approach, but if gradient evaluations are expensive, Quasi-Newton might be better. The expected number of function evaluations is probably around 1 for both SCG and Quasi-Newton
+The worst algorithm is clearly gradient descent, since it doesn't find good solutions, even in 100 runs there are no successful solutions. Gradient descent with line search is the slowest algorithm of them all, but because it does produce some useful solutions it is better than the original gradient descent algorithm.
+The reason for the very poor performance of the gradient descent algorithm is probably that if the learing rate is set too high, the algorithms best coordinates will `explode' into infinity. If the learning rate is set to a lower rate, 100 iterations are not enough to get to the optimal point. Because the Rosenberg function has such a narrow valley, finding the optimal value is very difficult.
 
 \newpage
 \section{Task 2: The XOR Problem}

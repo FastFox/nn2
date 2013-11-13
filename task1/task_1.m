@@ -4,7 +4,7 @@ function task_1()
     options = foptions;         % Standard options
     options(1) = -1;            % Turn off printing completely
     options(3) = 1e-8;          % Tolerance in value of function
-    options(14) = 100;          % Max. 100 iterations of algorithm
+    options(14) = 100000;          % Max. 100 iterations of algorithm
     options(18) = 0.001;         % Learning rate    
     
     default_options = options;
@@ -17,7 +17,7 @@ function task_1()
     
     for i = 1:100
         disp(i);
-        for j = 1:5
+        for j = 1:2
             options = default_options;
             if(j==1 || j==2)
                 options(18) = 0.008;
