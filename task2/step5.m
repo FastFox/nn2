@@ -1,11 +1,12 @@
 more off
 clear all
+rng('shuffle');
 
 w = randn(power(10, 7), 6);
 success = 0;
 
 tic
-for i = 1:power(10, 4)
+for i = 1:power(10, 7)
 	if 	round(xornet(0, 0, w(i, :))) == 0 & ...
 		round(xornet(1, 1, w(i, :))) == 0 & ... 
 		round(xornet(0, 1, w(i, :))) == 1 & ...
@@ -15,8 +16,4 @@ for i = 1:power(10, 4)
 end
 toc
 
-% Four instances of matlab
-% took 30 minutes
 ac = success / power(10, 7)
-
-% No, only 8 in 235 minutes with 4 cores. 

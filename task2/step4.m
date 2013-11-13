@@ -1,4 +1,5 @@
 function step4()
+    rng('shuffle');
     starting_point = randn(100,6);
     
     options = foptions;         % Standard options
