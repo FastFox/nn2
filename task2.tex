@@ -12,7 +12,6 @@
 
 \section{Task 2}
 
-Introduction
 
 \subsection{Problem Description}
 Instead of trying to find the minimum of the Rosenbrock's function in task 1, we would like to solve the "exclusive or" (xor) problem in task 2. The problem exists out of two input bits which should produce their associated value of the (only) output bit. Please see Table~\ref{tab:tt} for the truth table.
@@ -223,7 +222,7 @@ $w_6$ & 0.181319698693786 & 0.181319698588922 & 0.000000000104864 \\ \hline
 \subsection{Experiments}
 We ran all 5 algorithms for 100 iterations, starting from a random point. This is done 100 times to get the averages of the function evaluations, gradient evaluation and the successrate. The relative amount of times an algorithm is successful after 100 iterations is the successrate. An algorithm is succesful when it can predict all four scenarios correct. Listing~\ref{eq:success} gives more details about this definition. The results are in Table~\ref{table:results}. 
 
-\begin{figure}
+\begin{figure}[!h]
 	\begin{lstlisting}[caption={Success condition of a set of weights.}, label={eq:success}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize, breaklines=true, deletekeywords={round}]
 success = 	round(xornet(0, 0, w)) == 0 & ...
 			round(xornet(1, 1, w)) == 0 & ... 
@@ -247,8 +246,10 @@ success = 	round(xornet(0, 0, w)) == 0 & ...
 	\label{table:results}
 \end{table}
 
-Another experiment was to see how well an naive produce will perform. We generated 10 million random weights sets and tested how many of the sets were successful. Only 8 were successful, so the xor problem without bias nodes is really difficult. 
+Another experiment was to see how well an naive produce will perform. We generated 10 million random weights sets and tested how many of the sets were successful. Only 8 were successful. 
 
+\section{Conclusion}
+Neural networks can solve the xor problem. The update function of the weights are important, because they have different performances. The successrate of the Quasi-Newton method is the highest, but how important is the successrate? We only need one solution to solve the problem and one successful set of weights is not better compared to another successful set of weigths. Gradient descent and scaled conjugate cannot solve this problem within the chosen boundaries. The naive approach of generating random solutions can solve the problem, it only takes a while. Note, probably all functions will perform better if we used bias nodes in the neural network.
 
 \end{document}
 
