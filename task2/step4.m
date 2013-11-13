@@ -9,7 +9,7 @@ function step4()
     
     default_options = options;
     
-    max_iterations = 10;
+    max_iterations = 100;
     first_success = ones(5,1).*-1;
     
     results = zeros(max_iterations,5,4);   %experiment, algorithm, output (1=eval, 2=gradeval,3=runtime,4=successrate)
