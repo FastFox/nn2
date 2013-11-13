@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.4.24)  13 NOV 2013 16:43
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.4.24)  13 NOV 2013 19:03
 entering extended mode
 **assignment1.tex
 (D:\Universiteit\NN\nn2\assignment1.tex
@@ -202,6 +202,9 @@ LaTeX Warning: Label `fig:rosenbrocktask1' multiply defined.
 
 LaTeX Warning: Label `sub@fig:rosenbrocktask1' multiply defined.
 
+
+LaTeX Warning: Label `fig:rosenbrocktask1' multiply defined.
+
 )
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
@@ -280,38 +283,44 @@ egrad');[]
 [3] <rosenbrocktask1.png, id=22, 422.32782pt x 316.18124pt>
 File: rosenbrocktask1.png Graphic file (type png)
  <use rosenbrocktask1.png>
-Package pdftex.def Info: rosenbrocktask1.png used on input line 175.
+Package pdftex.def Info: rosenbrocktask1.png used on input line 174.
 (pdftex.def)             Requested size: 204.85844pt x 153.37184pt.
 
 <rosenbrocktask12.png, id=23, 422.32782pt x 316.18124pt>
 File: rosenbrocktask12.png Graphic file (type png)
  <use rosenbrocktask12.png>
-Package pdftex.def Info: rosenbrocktask12.png used on input line 180.
+Package pdftex.def Info: rosenbrocktask12.png used on input line 179.
 (pdftex.def)             Requested size: 204.85844pt x 153.37184pt.
  [4 <D:/Universiteit/NN/nn2/rosenbrocktask1.png (PNG copy)> <D:/Universiteit/NN/nn2/rosenbrocktask12.png (PNG copy)>] [5
-] [6] [7]
-(D:\Universiteit\NN\nn2\assignment1.aux)
+] [6]
+<hidden_nodes.png, id=34, 422.32782pt x 311.66437pt>
+File: hidden_nodes.png Graphic file (type png)
+ <use hidden_nodes.png>
+Package pdftex.def Info: hidden_nodes.png used on input line 249.
+(pdftex.def)             Requested size: 455.24408pt x 335.96477pt.
+ [7 <D:/Universiteit/NN/nn2/hidden_nodes.png (PNG copy)>] [8] (D:\Universiteit\NN\nn2\assignment1.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4475 strings out of 493921
- 65022 string characters out of 3150888
- 159922 words of memory out of 3000000
- 7739 multiletter control sequences out of 15000+200000
- 9351 words of font info for 35 fonts, out of 3000000 for 9000
+ 4482 strings out of 493921
+ 65142 string characters out of 3150888
+ 160922 words of memory out of 3000000
+ 7744 multiletter control sequences out of 15000+200000
+ 9659 words of font info for 36 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 42i,9n,58p,718b,440s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi1
-0.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-r12.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr7.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmtt10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on assignment1.pdf (7 pages, 187783 bytes).
+ 42i,9n,58p,840b,440s stack positions out of 5000i,500n,10000p,200000b,50000s
+<D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mr10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr17.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr9.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmsy7.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmtt12.pfb>
+Output written on assignment1.pdf (8 pages, 209601 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
+ 81 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

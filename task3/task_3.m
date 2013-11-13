@@ -1,16 +1,12 @@
 function output_pernode = task_3()
     load digits;
-    func = 'linear';
+    func = 'softmax';
     %Confusion matrices
     for i=1:100
         i
         cm = zeros(10);
         cm2 = zeros(10);
-
-        options = foptions;
-        options(1) = 1;
-        options(14)= 10;
-
+        
         target_training = zeros(size(trainingd,2),10);
         output_training = zeros(size(trainingd,2),10);
         target_test = zeros(size(testdatad,2),10);
