@@ -19,6 +19,13 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{listings}
+
+\pagestyle{empty}
+
+\def\layersep{3.5cm}
+
 \restylefloat{table}
 
 \usepackage{listings}
@@ -35,22 +42,6 @@
 
 \maketitle
 
-\section{Introduction}
-The second assignment of the Neural Networks course consits of three tasks:\\
-\begin{itemize}
-\item Task 1: Function Optimization
-\item Task 2: The XOR Problem
-\item Task 3: Handwritten digit recognition
-\end{itemize}
-
-For the first task, we were given the Rosenbrock's function, and we were asked to test 5 different algorithms for finding the global minimum of this function. The purpose is to get an insight into the limitations of the classical gradient descent algorithm. 
-In the second task we are using a neural network to solve the xor problem. The algorithms of task 1 are used to update the weights between the nodes. 
-
-%Task 2
-
-%Task 3
-
-\newpage
 \section{Task 1: Function Optimization}
 \subsection{Problem Description}
 The Rosenbrock function is a function that is used as a performance test for optimization algorithms. The equation can be found in figure \ref{eq:rosen}. It has a global minimum at the point (1,1), where the value of $f = 0$. This is visualized in figure \ref{fig:rosenbrock}. \\
@@ -70,6 +61,7 @@ We were given the task to optimize the Rosenbrock function using five different 
 	\label{fig:rosenbrock}
 \end{figure}
 
+\newpage
 The 5 different algorithms we tested are:
 \begin{itemize}
 \item Gradient descent
@@ -82,7 +74,6 @@ The 5 different algorithms we tested are:
 To get a good comparison between the algorithms, each algorithm was run 100 times.
 We first generated 100 random points around (-1,1) as starting points. Each algorithm was started from the same random point.\\
 
-\newpage
 There were 4 different measures to compare the algorithms with:
 \begin{itemize}
 \item The average number of evaluations of $f$
@@ -96,9 +87,23 @@ Together these measures should provide a decent indication which algorithm perfo
 The success rate is measured as reaching the minimum with an accuracy of 0.0001. This means that when the optimal point found by the algorithm is evaluated, the value of $f$ is smaller than 0.0001. Of course we would like to have an optimizer that gets a 100\% accuracy every time the algorithm is ran, but that is not always possible. 
 
 \subsection{Implementation}
-In figure \ref{fig:code} you can see the pseudo-code of the implemented algorithm.
+As described in the assignment, we run the algorithms using 100 randomly generated starting points from the distribution \texttt{[-1, 1] + 0.5 * randn(1,2)}. 
 
-\begin{figure}[h]
+We set the options of the algorithm to the default options, with a few changes, we set the tolerance of the function value to $1*10^{-8}$, the iterations to 100, and we use a different learning rate for the two gradient descent algorithms. The reasoning behind the value is described in section \ref{sec:experiments}.
+%Partial derivatives of f
+
+In figure \ref{fig:partdiv}, we show the partial derivatives of the Rosenbrock function.
+\begin{figure}[H]
+    \[\frac{\rho f}{\rho x} = 400x^3 + 2x - 400*yx - 2\]
+    \[\frac{\rho f}{\rho y} = 200y - 200*x^2\]
+    \caption{Partial derivatives of $f$}
+    \label{fig:partdiv}
+\end{figure}
+
+\newpage
+In figure \ref{fig:pseudocode} you can see the pseudo-code of the implemented algorithm.
+
+\begin{figure}[H]
 \begin{verbatim}
     starting_point = repmat([-1,1],100,1) + 0.5*randn(100,2);
     options = foptions;         % Standard options
@@ -118,7 +123,8 @@ In figure \ref{fig:code} you can see the pseudo-code of the implemented algorith
                 options(7) = 1;
             end
             tic;
-            [dump, options, dump, dump] = functionList{j}('rosen', starting_point(i,:), options, 'rosegrad');
+            [dump, options, dump, dump] = functionList{j}('rosen', starting_point(i,:),
+                                                                        options, 'rosegrad');
             time = toc;
             results(i,j,1) = options(10);
             results(i,j,2) = options(11);
@@ -128,46 +134,45 @@ In figure \ref{fig:code} you can see the pseudo-code of the implemented algorith
     end  
 \end{verbatim}
 \caption{Pseudo-code of task 1.}
-\label{fig:code}
-\end{figure}
-
-As described in the assignment, we run the algorithms using 100 randomly generated starting points from the distribution \texttt{[-1, 1] + 0.5 * randn(1,2)}. 
-
-We set the options of the algorithm to the default options, with a few changes, we set the tolerance of the function value to $1*10^{-8}$, the iterations to 100, and we use a different learning rate for the two gradient descent algorithms. The reasoning behind the value is described in section \ref{sec:experiments}.
-%Partial derivatives of f
-
-In figure \ref{fig:partdiv}, we show the partial derivatives of the Rosenbrock function.
-\begin{figure}[H]
-\[\frac{\rho f}{\rho x} = 400x^3 + 2x - 400*yx - 2\]
-\[\frac{\rho f}{\rho y} = 200y - 200*x^2\]
-\caption{Partial derivatives of $f$}
-\label{fig:partdiv}
+\label{fig:pseudocode}
 \end{figure}
 
 \subsection{Experiments}
 \label{sec:experiments}
 %Gradient descent experiments
-In task $1.3$ we were asked to tune both gradient descent algorithms manually. We first kept the number of iterations to 100, and tested different values of the learing rate.
+In task $1.3$ we were asked to tune both gradient descent algorithms manually. We first kept the number of iterations to 100, and tested different values of the learing rate. The results are in table \ref{tab:learningrate}.
 
-\begin{table*}[H]
+\begin{table}[H]
+    \parbox{.45\linewidth}{
 	\centering
-		\begin{tabular}{l|l|l}
-		Learning rate & Gradient Descent & Gradient Descent with linesearch \\
-		\hline
-		0.05 & 0 & 0.054 \\
-		0.01 & 0 & 0.058 \\
-		0.008 & 0 & 0.058 \\
-		0.005 & 0 & 0.056 \\
-		0.001 & 0 & 0.038 \\
-		0.0001 & 0 & 0.052 \\
-		0.00001 & 0 & 0.050 \\
+		\begin{tabular}{|l|l|l|l|}
+        \hline
+		Iterations & Learning rate & GD & GD /w linesearch \\ \hline 
+		100 & 0.05 & 0 \% & 5.4 \% \\ \hline
+		100 & 0.01 & 0 \% & 5.8 \% \\ \hline
+		100 & 0.008 & 0 \% & 5.8 \% \\ \hline
+		100 & 0.005 & 0 \% & 5.6 \% \\ \hline
+		100 & 0.001 & 0 \% & 3.8 \% \\ \hline
 		\end{tabular}
-\end{table*}
+    }
+    \hfill
+    \parbox{.45\linewidth}{
+	\centering
+		\begin{tabular}{|l|l|l|l|}
+        \hline
+		Iterations & Learning rate & GD & GD /w linesearch \\ \hline 
+		100.000 & 0.008 & 0 \% & 100 \% \\ \hline
+		\end{tabular}
+    }
+    \caption{Optimizing the learning rate}
+    \label{tab:learningrate}
+\end{table}
     
 The values are averages over 500 runs. We then tested the best value on 100 runs with 100.000 iterations, and the gradient descent algorithm with line search reached an accuracy of 100\%. The standard gradient descent still got 0\%.
-As you can see the optimal error is somewhere around a learning rate of 0.008, which is why we set the learning rate for the experiment to that value.
+As you can see the optimal error is somewhere around a learning rate of 0.008, which is why we set the learning rate for the experiment to that value. \\
 
-In order to acquire additional insights into how the algorithms work, we plotted the optimal points found after each iteration in the following plot.
+\newpage
+In order to acquire additional insights into how the algorithms work, we plotted the points that were found after each iteration in the following plot.
 
 \begin{figure}[H]
 	\centering
@@ -187,7 +192,7 @@ In order to acquire additional insights into how the algorithms work, we plotted
 	\centering
 	\begin{tabular}{| l | l | l | l | l |}
 		\hline
-		Function                        & Evaluation  & Gradient evaluation & Runtime & Successrate \\ \hline
+		Function                        & Evaluation  & Gradient evaluation & Runtime & Successrate \\ \hline 
 		Gradient descent                & 101         & 100  & 0.00778          & 0\% \\ \hline
 		Gradient descent /w line search & 1816.93     & 98   & 0.19121          & 6\% \\ \hline
 		Scaled conjugate gradient       & 0.47        & 0.7  & $5.376*10^{-5}$  & 100\% \\ \hline
@@ -198,41 +203,256 @@ In order to acquire additional insights into how the algorithms work, we plotted
 	\label{table:results}
 \end{table}
 
-In table \ref{table:results} you can find the results of the different algorithms. All 5 algorithms were run on an Intel Core i5-3470, the values are averages over 100 runs. The parameters used for the algorithms are described in the section `Implementation'. As you can see the gradient descent algorithm, even after optimization, still achieves a successrate of 0\% on the data. We took a look at the output-coordinates of the algorithm, and it shows that this setting of the learning rate is too high, because the coordinates keep growing until they reach infinity. Gradient descent with line search already works a lot better, but it costs more function evaluations. The other three methods clearly achieve better results on all fronts, with less evaluations, a shorter runtime and higher successrates.
+In table \ref{table:results} you can find the results of the different algorithms. All 5 algorithms were run on an Intel Core i5-3470, the values are averages over 100 runs. The parameters used for the algorithms are described in the section `Implementation'. As you can see the gradient descent algorithm, even after optimization, still achieves a successrate of 0\% on the data. If we look at the output-coordinates of the algorithm, it shows that this setting of the learning rate is too high, because the coordinates keep growing until they reach infinity. Gradient descent with line search already works a lot better, but it costs more function evaluations. The other three methods clearly achieve better results on all measured objectives, with less evaluations, a shorter runtime and higher successrates.
 
 \subsection{Conclusions}
 %Which algorithm is best? Which is worst?
 %What is the expected number of function evaluations (including evaluations of gradients)
 %needed to reach the optimum? What might be the reason for the very poor performance
 %of the gradient descent algorithm?
-The best algorithm is hard to tell. Both the Scaled Conjugate Gradient approach and the Quasi-Newton algorithm perform well on this particular problem. The Scaled Conjugate Gradient uses less function evaluations than Quasi-Newton, but Quasi-Newton uses less gradient evaluations. The runtime of both algorithms is almost equal, and they both achieve a successrate of 100\%. It depends on the computational difficulty of the problem which algorithms is better. If a function evaluation is costly, SCG might be the better approach, but if gradient evaluations are expensive, Quasi-Newton might be better. The expected number of function evaluations is probably around 1 for both SCG and Quasi-Newton
+It is difficult to select the best algorithm. Both the Scaled Conjugate Gradient approach and the Quasi-Newton algorithm perform well on this particular problem. The Scaled Conjugate Gradient uses less function evaluations than Quasi-Newton, but Quasi-Newton uses less gradient evaluations. The runtime of both algorithms is almost equal, and they both achieve a successrate of 100\%. It will depend on the computational difficulty of the problem to determine which algorithms is better. \\
 The worst algorithm is clearly gradient descent, since it doesn't find good solutions, even in 100 runs there are no successful solutions. Gradient descent with line search is the slowest algorithm of them all, but because it does produce some useful solutions it is better than the original gradient descent algorithm.
-The reason for the very poor performance of the gradient descent algorithm is probably that if the learing rate is set too high, the algorithms best coordinates will `explode' into infinity. If the learning rate is set to a lower rate, 100 iterations are not enough to get to the optimal point. Because the Rosenberg function has such a narrow valley, finding the optimal value is very difficult.
+The reason for the very poor performance of the gradient descent algorithm is probably that if the learning rate is set too high, the algorithms best coordinates will `explode' into infinity. If the learning rate is set to a lower rate, 100 iterations are not enough to get to the optimal point. Because the Rosenberg function has such a narrow valley, finding the optimal value is very difficult.
 
 \newpage
-\section{Task 2: The XOR Problem}
+\section{Task 2}
 \subsection{Problem Description}
+Instead of trying to find the minimum of the Rosenbrock's function in task 1, we were asked to solve the "exclusive or" (xor) problem in task 2. The problem exists out of two input bits which should produce their associated value of the (only) output bit. Please see table~\ref{tab:tt} for the truth table.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| l | c | r |}
+		\hline
+		$x_1$ & $x_2$ & $y$ \\ \hline
+		0 & 0 & 0 \\ \hline
+		0 & 1 & 1 \\ \hline
+		1 & 0 & 1 \\ \hline
+		1 & 1 & 1 \\ \hline
+	\end{tabular}
+	\caption{The truth table. When only one of the two input bits is true, the output bit should be true.}
+	\label{tab:tt}
+\end{table}
+
+A perceptron cannot solve this problem, because the classes (different values of y) could not be separated linearly with one line in twodimensional space. This is shown if figure \ref{fig:sep}.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}[x=1cm,y=1cm]
+			\draw[latex-latex, thin, draw=gray, ->] (0,0)--(2,0) node [right] {$x_1$};
+			\draw[latex-latex, thin, draw=gray, ->] (0,0)--(0,2) node [above] {$x_2$}; 
+			\draw[thick] (-1, -0.5)--(1.5, 2); 
+
+			\draw [dotted, gray] (-1, -1) grid (2, 2);
+			\node [black] at (0, 1) {\textbullet};
+			\node [black] at (-0.2, 1) {$_1$};
+			\node [black] at (1, 0) {\textbullet};
+			\node [black] at (1, -0.2) {$_1$};
+			\node [black] at (0, 0) {$\circ$} node [below left] {$_0$};
+			\node [black] at (1, 1) {$\circ$};
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}[x=1cm,y=1cm]
+			\draw[latex-latex, thin, draw=gray, ->] (0,0)--(2,0) node [right] {$x_1$};
+			\draw[latex-latex, thin, draw=gray, ->] (0,0)--(0,2) node [above] {$x_2$}; 
+			\draw[thick] (-0.5,-1)--(2, 1.5);
+
+			\draw [dotted, gray] (-1, -1) grid (2, 2);
+			\node [black] at (0, 1) {\textbullet};
+			\node [black] at (-0.2, 1) {$_1$};
+			\node [black] at (1, 0) {\textbullet};
+			\node [black] at (1, -0.2) {$_1$};
+			\node [black] at (0, 0) {$\circ$} node [below left] {$_0$};
+			\node [black] at (1, 1) {$\circ$};
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}[x=1cm,y=1cm]
+			\draw[latex-latex, thin, draw=gray, ->] (0,0)--(2,0) node [right] {$x_1$};
+			\draw[latex-latex, thin, draw=gray, ->] (0,0)--(0,2) node [above] {$x_2$}; 
+			\draw[thick] (-1, -0.5)--(1.5, 2); 
+			\draw[thick] (-0.5,-1)--(2, 1.5);
+
+			\draw [dotted, gray] (-1, -1) grid (2, 2);
+			\node [black] at (0, 1) {\textbullet};
+			\node [black] at (-0.2, 1) {$_1$};
+			\node [black] at (1, 0) {\textbullet};
+			\node [black] at (1, -0.2) {$_1$};
+			\node [black] at (0, 0) {$\circ$} node [below left] {$_0$};
+			\node [black] at (1, 1) {$\circ$};
+		\end{tikzpicture}
+		\caption{}
+	\end{subfigure}
+	\caption{3 trials to separate the classes. The filled circles are true cases and the empty circles are false cases.}
+	\label{fig:sep}
+\end{figure}
+
+As seen in figure~\ref{fig:sep} (c) it is possible to solve the xor problem, but not with a perceptron. We need something more advanced, like a neural network with a hidden layer.
+ 
+\begin{figure}[H]
+    \centering
+	\begin{tikzpicture}[shorten >=1pt,->,draw=black!50, node distance=\layersep]
+	   	\tikzstyle{every pin edge}=[<-,shorten <=1pt]
+		\tikzstyle{neuron}=[circle,fill=black!25,minimum size=17pt,inner sep=0pt]
+		\tikzstyle{input neuron}=[neuron, fill=green!50];
+		\tikzstyle{output neuron}=[neuron, fill=red!50];
+	   	\tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+		\tikzstyle{annot} = [text width=4em, text centered]
+
+		% Draw the input layer nodes
+		\node[input neuron, pin=left:$x_1$] (I-1) at (0,-1) {};
+		\node[input neuron, pin=left:$x_2$] (I-2) at (0,-3) {};
+
+		\path node[hidden neuron] (H-1) at (\layersep,-1 cm) {};
+		\path node[hidden neuron] (H-2) at (\layersep,-3 cm) {};
+
+	    	% Draw the output layer node %[yshift=0.5cm]
+	    	\node[output neuron,pin={[pin edge={->}]right:y}, right of=H-1, yshift=-1.0cm] (O) {};
+
+		% Connect every node in the input layer with every node in the
+		% hidden layer.
+		\path (I-1) edge node [above] {$w1$} (H-1) ;
+		\path (I-1) edge node [pos=0.75, below, sloped] {$w3$} (H-2);
+		\path (I-2) edge node [pos=0.75, above, sloped] {$w2$} (H-1);
+		\path (I-2) edge node [below] {$w4$} (H-2);
+
+		% Connect every node in the hidden layer with the output layer
+		\path (H-1) edge node [above, sloped] {$w5$} (O);
+		\path (H-2) edge node [below, sloped] {$w6$} (O);
+
+		% Annotate the layers
+		\node[annot,above of=H-1, node distance=1cm] (hl) {Hidden layer};
+		\node[annot,left of=hl] {Input layer};
+		\node[annot,right of=hl] {Output layer};
+	\end{tikzpicture}
+	\caption{The xor neural network.}
+	\label{fig:nn}
+\end{figure}
+
+\newpage
+\subsection{Solution}
+We made a multilayer neural network with three nodes and six weights \footnote{The network could be trained much faster when bias nodes are used, but in sight of the assignment there is chosen to do it the hard way and make the problem more difficult.}. Please see Figure~\ref{fig:nn} for an illustration. The network is trained with the data of the truth table and the weights are updated with the algorithms of task 1. The algorithms tries to steer the weights in such a way the errors of the predicted classes and the actual classes are minimized.
 
 \subsection{Implementation}
+\begin{figure}[H]
+	\begin{lstlisting}[caption={The computation of the output value, based on the input values and the weights.}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize]
+	function [y] = xornet(x1, x2, w)
+		net1 = w(1) * x1 + w(2) * x2;
+	 	y1 = phi(net1);
+		net2 = w(3) * x1 + w(4) * x2;
+	 	y2 = phi(net2);
+		net = w(5) * y1 + w(6) * y2;
+	 	y = phi(net);
+	end
+	\end{lstlisting}
+\end{figure}
+
+The xornet function computes the output value. The ($\phi$) sigmoid function is used as the activation function, so the output value will always lay between 0 and 1. The mysse function calculates the sum squared errors of the network. For every scenario of input values (all four combinations of $x_1$ and $x_2$) the computed value is substracted with the actual value (which is found in the truth table). These values are squared and cumulated. The lower the result the better. The dmysse calculates the derivatives, which are used by the 5 algorithms. In order to check the correctness of the function we used the gradchek function of the Netlab toolbox. The results are in table~\ref{table:gradchek}. The values of the analytic column are computed with the functions mysse (Listing~\ref{listing:mysse}) and dmysse (Listing~\ref{listing:dmysse}). The values of the diffs column are approximated with a central difference formula with a very small step size. The deltas are the difference between the two methods and are very near to 0. The reason for this is because the gradcheck function produces an approximation. 
+
+\begin{figure}[H]
+	\centering
+	\begin{eqnarray}
+	 \phi(x) & = & \frac{1}{1 + e^{-x}} \\
+	   \phi'(x) & = & \phi(x)(1 - \phi(x))
+	\end{eqnarray}
+	\caption{The sigmoid function (1) and the derivative (2).}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{lstlisting}[caption={The calculation of the sum squared error of the weights.}, label={listing:mysse}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize, breaklines=true]
+function [d] = mysse(w)
+	d = power(xornet(0, 0, w) - 0, 2) + 
+		power(xornet(0, 1, w) - 1, 2) + 
+		power(xornet(1, 0, w) - 1, 2) + 
+		power(xornet(1, 1, w) - 0, 2);
+end
+	\end{lstlisting}
+\end{figure}
+
+
+\begin{figure}
+	\begin{lstlisting}[caption={The computation of the derivatives of the sum squared error of the weights.}, label={listing:dmysse}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize, breaklines=true, deletekeywords={input, zeros}]
+function [d] = dmysse(w)
+	d = zeros(1, 6);
+
+	input = [0, 0; 0, 1; 1, 0; 1, 1];
+	target = [0, 1, 1, 0];
+
+	for i = 1:4
+		net1 = w(1) * input(i, 1) + w(2) * input(i, 2);
+		y1 = phi(net1);
+		net2 = w(3) * input(i, 1) + w(4) * input(i, 2);
+		y2 = phi(net2);
+		net = w(5) * y1 + w(6) * y2; 
+		y = phi(net);
+	
+		d(1) = d(1) + (y - target(i)) * phiprime(net) * w(5) * phiprime(net1) * input(i, 1);
+		d(2) = d(2) + (y - target(i)) * phiprime(net) * w(5) * phiprime(net1) * input(i, 2);
+		d(3) = d(3) + (y - target(i)) * phiprime(net) * w(6) * phiprime(net2) * input(i, 1);
+		d(4) = d(4) + (y - target(i)) * phiprime(net) * w(6) * phiprime(net2) * input(i, 2);
+		d(5) = d(5) + (y - target(i)) * phiprime(net) * y1;
+		d(6) = d(6) + (y - target(i)) * phiprime(net) * y2;
+	end
+	d = d * 2;
+end
+	\end{lstlisting}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| l | l | l | l |}
+		\hline
+		Weight & Analytic & Diffs & Delta \\ \hline
+$w_1$ & -0.0050 & -0.0050 & $5.4682*10^{-11}$ \\ \hline
+$w_2$ & -0.0032 & -0.0032 & $1.1398*10^{-10}$ \\ \hline
+$w_3$ & 0.06435 & 0.06435 & $-1.8951*10^{-11}$ \\ \hline
+$w_4$ & 0.04339 & 0.04339 & $-3.2260*10^{-11}$ \\ \hline
+$w_5$ & 0.18566 & 0.18566 & $6.0969*10^{-11}$ \\ \hline
+$w_6$ & 0.18131 & 0.18131 & $1.0486*10^{-10}$ \\ \hline
+	\end{tabular}
+	\caption{Results of the gradchek function.}
+	\label{table:gradchek}
+\end{table}
 
 \subsection{Experiments}
+We ran all 5 algorithms for 100 iterations, starting from a random point. This is done 100 times to get the averages of the function evaluations, gradient evaluation and the successrate. The relative amount of times an algorithm is successful after 100 iterations is the successrate. An algorithm is succesful when it can predict all four scenarios correctly. Listing~\ref{eq:success} gives more details about this definition. The results are in Table~\ref{table:results}. 
 
-\subsection{Conclusions}
+\begin{figure}[H]
+	\begin{lstlisting}[caption={Success condition of a set of weights.}, label={eq:success}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize, breaklines=true, deletekeywords={round}]
+success = 	round(xornet(0, 0, w)) == 0 & ...
+			round(xornet(1, 1, w)) == 0 & ... 
+			round(xornet(0, 1, w)) == 1 & ...
+			round(xornet(1, 0, w)) == 1;
+	\end{lstlisting}
+\end{figure}
+
+\newpage
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| l | l | l | l | l |}
+		\hline
+		Function & Evaluation & Gradient evaluation & Runtime (sec) & Successrate \\ \hline
+		Gradient descent & 101 & 100 & 2.0 & 0\% \\ \hline
+		Gradient descent (line search) & 1700 & 100 & 5.1 & 0\% \\ \hline
+		Scaled conjugate gradient & 67 & 121 & 2.3 & 0\% \\ \hline
+		Conjugate gradients & 1691 & 72 & 4.6 & 10\% \\ \hline
+		Quasi-Newton & 253 & 82 & 2.0 & 13\% \\ \hline
+	\end{tabular}
+	\caption{Results of the 5 algorithms. All values are averages and rounded.}
+	\label{table:results}
+\end{table}
+
+Another experiment was to see how well an naive produce will perform. We generated 10 million random weights sets and tested how many of the sets were successful. Only 8 were successful. 
+
+\subsection{Conclusion}
+Neural networks can solve the xor problem. The update function of the weights are important, because they have different performances. The successrate of the Quasi-Newton method is the highest, but how important is the successrate? We only need one solution to solve the problem and one successful set of weights is not better compared to another successful set of weigths. Gradient descent and scaled conjugate cannot solve this problem within the chosen boundaries. The naive approach of generating random solutions can solve the problem, it only takes a while. Note, probably all functions will perform better if we used bias nodes in the neural network.
 
 \newpage
 \section{Task 3: Handwritten Digit Recognition with MLP}
-%The purpose of this task is to compare the accuracy of MLP networks to the single layer
-%networks that you’ve investigated in Assignment 1. Train several MLP networks with the
-%number of hidden nodes ranging between 1 and 100 (not all!) and 10 output nodes. Chose
-%a suitable number of hidden nodes experimentally and a training method that is suﬃciently
-%fast. Try three possible activation functions for the output nodes: linear, logistic and
-%softmax (study the code of mlp.m to get more details). To make sure that you understand
-%what is optimized during the training process, study the function mlperr.m to ﬁnd out which
-%error measures correspond to the three activation functions. Write down in your report the
-%deﬁnitions (formulas) of these error measures.
-%Summarize the results of your experiments in a table. What setup was most successful?
-%What classiﬁcation rate have you achieved?
-In task 3 we had to compare the Multilayer Perceptron networks to the single layer networks we've investigated in Assignment 1.
+In task 3 we had to compare the Multilayer Perceptron networks to the single layer networks we have investigated in Assignment 1.
 
 \subsection{Problem Description}
 We were given the handwritten digits dataset from Assignment 1 again, and were now asked to implement a multilayer perceptron network, and train it to recognize handwritten digits.
@@ -240,23 +460,81 @@ The goal is of course to achieve the highest classification rate posssible.
 
 \subsection{Implementation}
 %Pseudocode
+We built a Multi-Level perceptron with 256 inputs and 10 outputs. Each output can be seen as a boolean value that is true if the input was the corresponding digit.
+\begin{figure}[H]
+    \begin{verbatim}        
+    function task_3()
+        %Create the net
+        net = mlp(256,75,10,func);
+        %Train the nets
+        net = mlptrain(net, training', target_training, 100);
+        %Test errors on training
+        output_training = mlpfwd(net, training');
+        %Test errors on testset
+        output_test = mlpfwd(net, testdata');
+        %create confusion matrix for training
+        %create confusion matrix for testset
+    end
+    \end{verbatim}
+    \caption{Pseudo-code of task 1.}
+    \label{fig:code}
+\end{figure}
 
-
+\newpage
 \subsection{Experiments}
-We first tried to find the best number of hidden nodes. In the plot of \ref{fig:hidden_nodes} you can see that the softmax activation function yields the best results. We set the number of training iterations to 100 as a first try, and used the Scaled Conjugate Gradient as a training method. 
+We first tried to find the best number of hidden nodes. We set the number of training iterations to 100, and used the Scaled Conjugate Gradient as a training method. In the plot of figure \ref{fig:hidden_nodes} you can see that the softmax activation function yields the best results.
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=\textwidth]{hidden_nodes.png}
-    \caption{Nadenken}
+		\includegraphics[scale=0.8]{hidden_nodes.png}
+    \caption{Hidden nodes}
     \label{fig:hidden_nodes}
 \end{figure}
 
-To check whether there are differences between the Scaled Conjugate Gradient method, Quasi-Newton and Backpropagation, we show the classification rates and runtime in table ...
+Because there is no improvement after about 30 hidden nodes, we set the number of nodes to 75. To check whether there are differences between the Scaled Conjugate Gradient method, Quasi-Newton and Backpropagation, we show the classification rates and runtime in table \ref{tab:tm}.
 
-Finally we used cross-validation to train the network to get the optimal classification rate.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| l | l | l |}
+		\hline
+		Training method & Runtime & Classification rate \\ \hline
+		SCG & 2.3550 & 93.84 \\ \hline
+		Conjugate Gradient & 7.2546 & 93.42\\ \hline
+		Backpropagation & 1.1860 & 65.74 \\ \hline
+	\end{tabular}
+	\caption{Comparison of training methods}
+	\label{tab:tm}
+\end{table}
+
+The values are averages over 20 runs. Quasi-Newton was not tested, because it used too much RAM for our pc (which has 8GB). 
+
+\newpage
+Finally we tried to find the best value for the number of training iterations. (See table \ref{tab:trainiter})
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| l | l | l |}
+		\hline
+		Training iterations & Runtime & Classification rate \\ \hline
+            1 &   0.0567  &  6.7000 \\ \hline
+           11 &   0.2825  & 90.6000 \\ \hline
+           21 &   0.4920  & 92.4000 \\ \hline
+           31 &   0.6624  & 94.7000 \\ \hline
+           41 &   0.8748  & 93.4000 \\ \hline
+           51 &   1.0392  & 94.9000 \\ \hline
+           61 &   1.2038  & 93.7000 \\ \hline
+           71 &   1.3936  & 93.9000 \\ \hline
+           81 &   1.6338  & 93.4000 \\ \hline
+           91 &   1.7814  & 94.0000 \\ \hline
+	\end{tabular}
+	\caption{Comparison of training iterations}
+	\label{tab:trainiter}
+\end{table}
+
+As we expected there is a minimum of training iterations necessary to train the network properly, but after that threshold is reached, no more improvement is found. This is why we set the training iterations to 50.
 
 \subsubsection{Activation functions}
+In figure \ref{fig:errormeasure} you can see the different functions and the way their error values are calculated.
+
 \begin{figure}[H]
 	\centering
 %	edata = 0.5*sum(sum((y - t).^2));
@@ -266,10 +544,11 @@ Finally we used cross-validation to train the network to get the optimal classif
 		error & = & t * log(y)
 	\end{eqnarray}
 	\caption{Error measurements in multiple activation functions. (1) Logistic (2) Logistic (3) Softmax }
+    \label{fig:errormeasure}
 \end{figure}
 
 \subsection{Conclusions}
-As you can see in section ... blabla
+The final algorithm used a network with 75 hidden nodes, 50 training iterations and the Scaled Conjugate Gradient method for training the network. Finally we ran the algorithm 100 times, mixing up the test and trainingset each run, checking the algorithm only on input digits that the it hasn't seen before. We achieved a final accuracy of $93.72\%$.
 
 
 

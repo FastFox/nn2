@@ -1,12 +1,27 @@
-function output_pernode = task_3()
+function output = task_3()
     load digits;
     func = 'softmax';
-    %Confusion matrices
-    for i=1:100
+
+
+    for i = 1:100
         i
+        tic
+        %Confusion matrices
         cm = zeros(10);
-        cm2 = zeros(10);
+        cm2 = zeros(10);        
         
+        inputdata = [training testdata];
+        inputdigits = [trainingd testdatad];
+        perm = randperm(size(inputdata,2));
+
+        inputdata = inputdata(:,perm);
+        inputdigits = inputdigits(:,perm);
+
+        training = inputdata(:,1:1707);
+        trainingd = inputdigits(:,1:1707);
+        testdata = inputdata(:,1708:end);
+        testdatad = inputdigits(:,1708:end);   
+
         target_training = zeros(size(trainingd,2),10);
         output_training = zeros(size(trainingd,2),10);
         target_test = zeros(size(testdatad,2),10);
@@ -20,9 +35,11 @@ function output_pernode = task_3()
             target_test(j, testdatad(j)+1) = 1;
         end   
         %Create the net
-        net = mlp(256,i,10,func);
+        net = mlp(256,75,10,func);
         %Train the nets
-        net = mlptrain(net, training', target_training, 100);
+        options = foptions;
+        options(14) = i;
+        net = mlptrain(net, training', target_training, 50);
         %Test errors on training
         output_training = mlpfwd(net, training');
         for d=1:10
@@ -46,9 +63,9 @@ function output_pernode = task_3()
             end
         end
         cm
-        disp(['Percentage correct: ' num2str(trace(cm)/1707)]);
+        disp(['Percentage correct: ' num2str((trace(cm)/1707)*100)]);
         cm2
-        disp(['Percentage correct: ' num2str(trace(cm2)/1000)]);
-        output_pernode(i) = trace(cm2)/1000;
+        disp(['Percentage correct: ' num2str((trace(cm2)/1000)*100)]);
+        output(i) = (trace(cm2)/1000)*100;      
     end
 end
