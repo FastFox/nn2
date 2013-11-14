@@ -1,8 +1,7 @@
 function output = task_3()
     load digits;
     func = 'softmax';
-
-
+    
     for i = 1:100
         i
         tic

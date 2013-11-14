@@ -1,0 +1,651 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.4.24)  14 NOV 2013 19:50
+entering extended mode
+**assignment2.tex
+(D:\Universiteit\NN\nn2\assignment2.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, arabic, armenian, assamese, basque, bengali
+, bokmal, bulgarian, catalan, coptic, croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, galic
+ian, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, icelandic, indonesian, interlingua, irish, italian,
+ kannada, kurmanji, latin, latvian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, ngerman
+-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, romanian, russian, sanskrit, serbian, slovak, sloven
+ian, spanish, swedish, swissgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usenglishmax, w
+elsh, loaded.
+(D:\Programs\MiKTeX\tex\latex\base\article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(D:\Programs\MiKTeX\tex\latex\base\size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (D:\Programs\MiKTeX\tex\generic\babel\babel.sty
+Package: babel 2008/07/08 v3.8m The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(D:\Programs\MiKTeX\tex\latex\00miktex\bblopts.cfg
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+) (D:\Programs\MiKTeX\tex\generic\babel\english.ldf
+Language: english 2005/03/30 v3.3o English support from the babel system
+
+(D:\Programs\MiKTeX\tex\generic\babel\babel.def
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count87
+\U@D=\dimen103
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)) (D:\Programs\MiKTeX\tex\latex\amsmath\amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(D:\Programs\MiKTeX\tex\latex\amsmath\amstext.sty
+Package: amstext 2000/06/29 v2.01
+ (D:\Programs\MiKTeX\tex\latex\amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen104
+))
+(D:\Programs\MiKTeX\tex\latex\amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+) (D:\Programs\MiKTeX\tex\latex\amsmath\amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks15
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks16
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(D:\Programs\MiKTeX\tex\latex\float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count100
+\float@exts=\toks19
+\float@box=\box28
+\@float@everytoks=\toks20
+\@floatcapt=\box29
+) (D:\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(D:\Programs\MiKTeX\tex\latex\graphics\keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks21
+) (D:\Programs\MiKTeX\tex\latex\graphics\graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(D:\Programs\MiKTeX\tex\latex\graphics\trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (D:\Programs\MiKTeX\tex\latex\00miktex\graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(D:\Programs\MiKTeX\tex\latex\pdftex-def\pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+ (D:\Programs\MiKTeX\tex\generic\oberdiek\infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(D:\Programs\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count101
+))
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen115
+\captionmargin@=\dimen116
+\captionwidth=\dimen117
+\caption@tempdima=\dimen118
+\caption@indent=\dimen119
+\caption@parindent=\dimen120
+\caption@hangindent=\dimen121
+)
+\c@ContinuedFloat=\count102
+Package caption Info: float package is loaded.
+)
+\c@subfigure=\count103
+\c@subtable=\count104
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\frontendlayer\tikz.sty
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgf.sty
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfrcs.sty
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks22
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-latex.def
+\pgfutil@abb=\box30
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfrcs.code.tex
+Package: pgfrcs 2010/10/25 v2.10 (rcs-revision 1.24)
+))
+Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgfcore.sty
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\systemlayer\pgfsys.sty
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex
+Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks23
+\pgfkeys@temptoks=\toks24
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks25
+))
+\pgf@x=\dimen122
+\pgf@y=\dimen123
+\pgf@xa=\dimen124
+\pgf@ya=\dimen125
+\pgf@xb=\dimen126
+\pgf@yb=\dimen127
+\pgf@xc=\dimen128
+\pgf@yc=\dimen129
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count105
+\c@pgf@countb=\count106
+\c@pgf@countc=\count107
+\c@pgf@countd=\count108
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 900.
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2009/05/22  (rcs-revision 1.26)
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
+)))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
+\pgfsyssoftpath@smallbuffer@items=\count109
+\pgfsyssoftpath@bigbuffer@items=\count110
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+ (D:\Programs\MiKTeX\tex\latex\00miktex\color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+) (C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex
+Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.tex
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathcalc.code.tex
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathutil.code.tex)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen130
+\pgfmath@count=\count111
+\pgfmath@box=\box31
+\pgfmath@toks=\toks26
+\pgfmath@stack@operand=\toks27
+\pgfmath@stack@operation=\toks28
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometric.code.tex)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.random.code.tex)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.code.tex)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.tex)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.tex)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex)))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count112
+))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
+\pgf@picminx=\dimen131
+\pgf@picmaxx=\dimen132
+\pgf@picminy=\dimen133
+\pgf@picmaxy=\dimen134
+\pgf@pathminx=\dimen135
+\pgf@pathmaxx=\dimen136
+\pgf@pathminy=\dimen137
+\pgf@pathmaxy=\dimen138
+\pgf@xx=\dimen139
+\pgf@xy=\dimen140
+\pgf@yx=\dimen141
+\pgf@yy=\dimen142
+\pgf@zx=\dimen143
+\pgf@zy=\dimen144
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
+\pgf@path@lastx=\dimen145
+\pgf@path@lasty=\dimen146
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
+\pgf@shorten@end@additional=\dimen147
+\pgf@shorten@start@additional=\dimen148
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
+\pgfpic=\box32
+\pgf@hbox=\box33
+\pgf@layerbox@main=\box34
+\pgf@picture@serial@count=\count113
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
+\pgflinewidth=\dimen149
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
+\pgf@pt@x=\dimen150
+\pgf@pt@y=\dimen151
+\pgf@pt@temp=\dimen152
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
+\pgf@max=\dimen153
+\pgf@sys@shading@range@num=\count114
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
+\pgfexternal@startupbox=\box35
+))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
+)))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
+\pgfnodeparttextbox=\box36
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen154
+\pgf@nodesepend=\dimen155
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
+))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgffor.sty
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfkeys.sty
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.code.tex))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgffor.code.tex
+Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
+\pgffor@iter=\dimen156
+\pgffor@skip=\dimen157
+\pgffor@stack=\toks29
+\pgffor@toks=\toks30
+))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex
+Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
+\pgf@plot@mark@count=\count115
+\pgfplotmarksize=\dimen158
+)
+\tikz@lastx=\dimen159
+\tikz@lasty=\dimen160
+\tikz@lastxsaved=\dimen161
+\tikz@lastysaved=\dimen162
+\tikzleveldistance=\dimen163
+\tikzsiblingdistance=\dimen164
+\tikz@figbox=\box37
+\tikz@tempbox=\box38
+\tikztreelevel=\count116
+\tikznumberofchildren=\count117
+\tikznumberofcurrentchild=\count118
+\tikz@fig@count=\count119
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
+\pgfmatrixcurrentrow=\count120
+\pgfmatrixcurrentcolumn=\count121
+\pgf@matrix@numberofcolumns=\count122
+)
+\tikz@expandcount=\count123
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
+)))
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
+\lst@mode=\count124
+\lst@gtempboxa=\box39
+\lst@token=\toks31
+\lst@length=\count125
+\lst@currlwidth=\dimen165
+\lst@column=\count126
+\lst@pos=\count127
+\lst@lostspace=\dimen166
+\lst@width=\dimen167
+\lst@newlines=\count128
+\lst@lineno=\count129
+\lst@maxwidth=\dimen168
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count130
+\lst@skipnumbers=\count131
+\lst@framebox=\box40
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+\@float@every@table=\toks32
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
+No file assignment2.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count132
+\scratchdimen=\dimen169
+\scratchbox=\box41
+\nofMPsegments=\count133
+\nofMParguments=\count134
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count135
+\MPscratchDim=\dimen170
+\MPnumerator=\count136
+\makeMPintoPDFobject=\count137
+\everyMPtoPDFconversion=\toks34
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+ ABD: EveryShipout initializing macros
+\c@lstlisting=\count138
+
+
+LaTeX Warning: Reference `eq:rosen' on page 1 undefined on input line 47.
+
+
+LaTeX Warning: Reference `fig:rosenbrock' on page 1 undefined on input line 47.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
+
+ []
+
+<rosenbrock.png, id=4, 422.32782pt x 316.18124pt>
+File: rosenbrock.png Graphic file (type png)
+ <use rosenbrock.png>
+Package pdftex.def Info: rosenbrock.png used on input line 59.
+(pdftex.def)             Requested size: 337.8627pt x 252.94533pt.
+ [1
+
+{C:/Users/Pepijn/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <D:/Universiteit/NN/nn2/rosenbrock.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 67.
+ (D:\Programs\MiKTeX\tex\latex\base\omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
+
+ []
+
+
+LaTeX Warning: Reference `sec:experiments' on page 2 undefined on input line 92.
+
+
+LaTeX Warning: Reference `fig:partdiv' on page 2 undefined on input line 95.
+
+[2]
+
+LaTeX Warning: Reference `fig:pseudocode' on page 3 undefined on input line 104.
+
+
+Overfull \hbox (1.50194pt too wide) in paragraph at lines 135--135
+[]            \OT1/cmtt/m/n/10 [dump, options, dump, dump] = functionList{j}('rosen', starting_point(i,:),[] 
+ []
+
+
+Overfull \hbox (33.00166pt too wide) in paragraph at lines 135--135
+[]                                                                        \OT1/cmtt/m/n/10 options, 'rosegrad');[] 
+ []
+
+
+LaTeX Warning: Reference `tab:learningrate' on page 3 undefined on input line 143.
+
+
+Overfull \hbox (37.87805pt too wide) in paragraph at lines 157--157
+ [][] 
+ []
+
+
+Overfull \hbox (37.87805pt too wide) in paragraph at lines 166--166
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
+
+ []
+
+[3] <rosenbrocktask1.png, id=26, 422.32782pt x 316.18124pt>
+File: rosenbrocktask1.png Graphic file (type png)
+ <use rosenbrocktask1.png>
+Package pdftex.def Info: rosenbrocktask1.png used on input line 180.
+(pdftex.def)             Requested size: 204.85844pt x 153.37184pt.
+
+<rosenbrocktask12.png, id=27, 422.32782pt x 316.18124pt>
+File: rosenbrocktask12.png Graphic file (type png)
+ <use rosenbrocktask12.png>
+Package pdftex.def Info: rosenbrocktask12.png used on input line 185.
+(pdftex.def)             Requested size: 204.85844pt x 153.37184pt.
+
+
+LaTeX Warning: Reference `tab:results' on page 4 undefined on input line 206.
+
+[4 <D:/Universiteit/NN/nn2/rosenbrocktask1.png (PNG copy)> <D:/Universiteit/NN/nn2/rosenbrocktask12.png (PNG copy)>]
+
+LaTeX Warning: Reference `tab:tt' on page 5 undefined on input line 220.
+
+
+LaTeX Warning: Reference `fig:sep' on page 5 undefined on input line 236.
+
+
+LaTeX Warning: Reference `fig:sep' on page 5 undefined on input line 293.
+
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[5]
+
+LaTeX Warning: Reference `fig:nn' on page 6 undefined on input line 337.
+
+(C:\Users\Pepijn\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 343.
+
+
+LaTeX Warning: Reference `table:gradchek' on page 6 undefined on input line 353.
+
+
+LaTeX Warning: Reference `listing:mysse' on page 6 undefined on input line 353.
+
+
+LaTeX Warning: Reference `listing:dmysse' on page 6 undefined on input line 353.
+
+[6]
+
+LaTeX Warning: Reference `eq:success' on page 7 undefined on input line 421.
+
+
+LaTeX Warning: Reference `table:results' on page 7 undefined on input line 421.
+
+[7] [8] [9]
+
+LaTeX Warning: Reference `fig:hidden_nodes' on page 10 undefined on input line 485.
+
+<hidden_nodes.png, id=55, 422.32782pt x 311.66437pt>
+File: hidden_nodes.png Graphic file (type png)
+ <use hidden_nodes.png>
+Package pdftex.def Info: hidden_nodes.png used on input line 489.
+(pdftex.def)             Requested size: 337.8627pt x 249.33183pt.
+
+
+LaTeX Warning: Reference `tab:tm' on page 10 undefined on input line 494.
+
+[10 <D:/Universiteit/NN/nn2/hidden_nodes.png (PNG copy)>]
+
+LaTeX Warning: Reference `tab:trainiter' on page 11 undefined on input line 512.
+
+
+LaTeX Warning: Reference `fig:errormeasure' on page 11 undefined on input line 536.
+
+[11] (D:\Universiteit\NN\nn2\assignment2.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 13505 strings out of 493921
+ 242564 string characters out of 3150888
+ 487363 words of memory out of 3000000
+ 16571 multiletter control sequences out of 15000+200000
+ 10136 words of font info for 38 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 56i,10n,68p,1153b,1698s stack positions out of 5000i,500n,10000p,200000b,50000s
+<D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmr17.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr6.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmsy8.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><D:/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmtt12.pfb><D:/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on assignment2.pdf (11 pages, 291488 bytes).
+PDF statistics:
+ 121 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+
