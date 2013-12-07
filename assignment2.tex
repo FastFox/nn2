@@ -355,6 +355,7 @@ We made a multilayer neural network with three nodes and six weights \footnote{T
 		y &&= \varphi(net)
 	\end{eqnarray}
 	\caption{The computation of the output value, based on the input values and the weights.}
+	\label{fig:net}
 \end{figure}
 %\begin{figure}[H]
 %	\begin{lstlisting}[caption={The computation of the output value, based on the input values and the weights.}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize]
@@ -369,8 +370,6 @@ We made a multilayer neural network with three nodes and six weights \footnote{T
 %	\end{lstlisting}
 %\end{figure}
 
-The xornet function computes the output value. The ($\varphi$) sigmoid function is used as the activation function, so the output value will always lay between 0 and 1. The mysse function calculates the sum squared errors of the network. For every scenario of input values (all four combinations of $x_1$ and $x_2$) the computed value is substracted with the actual value (which is found in the truth table). These values are squared and cumulated. The lower the result the better. The dmysse calculates the derivatives, which are used by the 5 algorithms. In order to check the correctness of the function we used the gradchek function of the Netlab toolbox. The results are in table~\ref{table:gradchek}. The values of the analytic column are computed with the functions mysse (Listing~\ref{listing:mysse}) and dmysse (Listing~\ref{listing:dmysse}). The values of the diffs column are approximated with a central difference formula with a very small step size. The deltas are the difference between the two methods and are very near to 0. The reason for this is because the gradcheck function produces an approximation. 
-
 \begin{figure}[H]
 	\centering
 	\begin{eqnarray}
@@ -378,17 +377,24 @@ The xornet function computes the output value. The ($\varphi$) sigmoid function 
 	   \varphi'(x) & = & \varphi(x)(1 - \varphi(x))
 	\end{eqnarray}
 	\caption{The sigmoid function (1) and the derivative (2).}
+	\label{fig:sig}
 \end{figure}
+
+Figure~\ref{fig:net} computes the output value. The ($\varphi$) sigmoid (Figure~\ref{fig:sig}) is used as the activation function, so the output value will always lay between 0 and 1. The sum squared errors of the network are calculated with the formulaes from Figure~\ref{fig:sse}. For every scenario of input values (all four combinations of $x_1$ and $x_2$) the computed value is substracted with the actual value (which is found in the truth table). These values are squared and cumulated. The lower the result the better. Figure~\ref{fig:dsse} calculates the derivatives, which are used by the 5 algorithms. In order to check the correctness of the function we used the gradchek function of the Netlab toolbox. The results are in table~\ref{table:gradchek}. The values of the analytic column are computed with the formulas from Figure~\ref{fig:sse} and Figure~\ref{fig:dsse}. The values of the diffs column are approximated with a central difference formula with a very small step size. The deltas are the difference between the two methods and are very near to 0. The reason for this is because the gradcheck function produces an approximation. 
+
+
+
 
 \begin{figure}[H]
 	\centering
 	\begin{eqnarray}
-		MySSE(w) = && (net(0, 0, w) - 0)^2 + \\
+		E(w) = && (net(0, 0, w) - 0)^2 + \\
 				&& (net(0, 1, w) - 1)^2 \\
 				&& (net(1, 0, w) - 1)^2 \\
 				&& (net(1, 1, w) - 0)^2
 	\end{eqnarray}
 	\caption{The calculation of the sum squared error of the weights.}
+	\label{fig:sse}
 \end{figure}
 %\begin{figure}[H]
 %	\begin{lstlisting}[caption={The calculation of the sum squared error of the weights.}, label={listing:mysse}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize, breaklines=true]
@@ -411,7 +417,8 @@ The xornet function computes the output value. The ($\varphi$) sigmoid function 
 		\frac{\partial E}{\partial w_5} &&= \Sigma{(y - d)\varphi'(net)y_1} \\
 		\frac{\partial E}{\partial w_6} &&= \Sigma{(y - d)\varphi'(net)y_2}
 	\end{eqnarray}
-	\caption{?}
+	\caption{Cumulated partial derivatives of the sum squared error.}
+	\label{fig:dsse}
 \end{figure}
 
 
@@ -461,7 +468,7 @@ $w_6$ & 0.18131 & 0.18131 & $1.0486*10^{-10}$ \\ \hline
 \end{table}
 
 \subsection{Experiments}
-We ran all 5 algorithms for 100 iterations, starting from a random point. This is done 100 times to get the averages of the function evaluations, gradient evaluation and the successrate. The relative amount of times an algorithm is successful after 100 iterations is the successrate. An algorithm is succesful when it can predict all four scenarios correctly. Listing~\ref{eq:success} gives more details about this definition. The results are in Table~\ref{table:results}. 
+We ran all 5 algorithms for 100 iterations, starting from a random point. This is done 100 times to get the averages of the function evaluations, gradient evaluation and the successrate. The relative amount of times an algorithm is successful after 100 iterations is the successrate. An algorithm is succesful when it can predict all four scenarios correctly. The succcess rule is defined in Figure~\ref{fig:sr}. The results are in Table~\ref{table:results}. 
 
 
 \begin{figure}[H]
@@ -473,6 +480,7 @@ We ran all 5 algorithms for 100 iterations, starting from a random point. This i
 			&& round(net(1, 1, w)) == 0
 	\end{eqnarray}
 	\caption{Success rule}
+	\label{fig:sr}
 \end{figure}
 
 
@@ -516,7 +524,8 @@ The goal is of course to achieve the highest classification rate posssible.
 
 \subsection{Implementation}
 %Pseudocode
-We built a Multi-Level perceptron with 256 inputs and 10 outputs. Each output can be seen as a boolean value that is true if the input was the corresponding digit.
+We built a Multi-Level perceptron with 256 inputs and 10 outputs. The inputs are the images and the outputs are the labels. Each output can be seen as a boolean value that is true if the input was the corresponding digit. 
+
 %\begin{figure}[H]
 %    \begin{verbatim}        
 %    function task_3()
