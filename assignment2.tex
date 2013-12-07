@@ -402,6 +402,8 @@ The xornet function computes the output value. The ($\phi$) sigmoid function is 
 %	\end{lstlisting}
 %\end{figure}
 
+
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{| l | l | l | l |}
@@ -421,14 +423,14 @@ $w_6$ & 0.18131 & 0.18131 & $1.0486*10^{-10}$ \\ \hline
 \subsection{Experiments}
 We ran all 5 algorithms for 100 iterations, starting from a random point. This is done 100 times to get the averages of the function evaluations, gradient evaluation and the successrate. The relative amount of times an algorithm is successful after 100 iterations is the successrate. An algorithm is succesful when it can predict all four scenarios correctly. Listing~\ref{eq:success} gives more details about this definition. The results are in Table~\ref{table:results}. 
 
-\begin{figure}[H]
-	\begin{lstlisting}[caption={Success condition of a set of weights.}, label={eq:success}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize, breaklines=true, deletekeywords={round}]
-success = 	round(xornet(0, 0, w)) == 0 & ...
-			round(xornet(1, 1, w)) == 0 & ... 
-			round(xornet(0, 1, w)) == 1 & ...
-			round(xornet(1, 0, w)) == 1;
-	\end{lstlisting}
-\end{figure}
+%\begin{figure}[H]
+%	\begin{lstlisting}[caption={Success condition of a set of weights.}, label={eq:success}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize, breaklines=true, deletekeywords={round}]
+%success = 	round(xornet(0, 0, w)) == 0 & ...
+%			round(xornet(1, 1, w)) == 0 & ... 
+%			round(xornet(0, 1, w)) == 1 & ...
+%			round(xornet(1, 0, w)) == 1;
+%	\end{lstlisting}
+%\end{figure}
 
 \newpage
 \begin{table}[H]
