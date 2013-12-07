@@ -206,14 +206,14 @@ In order to acquire additional insights into how the algorithms work, we plotted
 In table \ref{tab:results} you can find the results of the different algorithms. All 5 algorithms were run on an Intel Core i5-3470, the values are averages over 100 runs. 
 %The parameters used for the algorithms are described in the section `Implementation'.
 The amount of maximum iterations are set to 100 and the learning rate is set to 0.001.
-As you can see the gradient descent algorithm, even after optimization, still achieves a successrate of 0\% on the data. If we look at the output-coordinates of the algorithm, it shows that this setting of the learning rate is too high, because the coordinates keep growing until they reach infinity. Gradient descent with line search already works a lot better, but it costs more function evaluations. The other three methods clearly achieve better results on all measured objectives, with less evaluations, a shorter runtime and higher successrates.
+As you can see the gradient descent algorithm, even after optimization, still achieves a success rate of 0\% on the data. If we look at the output-coordinates of the algorithm, it shows that this setting of the learning rate is too high, because the coordinates keep growing until they reach infinity. Gradient descent with line search already works a lot better, but it costs more function evaluations. The other three methods clearly achieve better results on all measured objectives, with less evaluations, a shorter runtime and higher success rates.
 
 \subsection{Conclusions}
 %Which algorithm is best? Which is worst?
 %What is the expected number of function evaluations (including evaluations of gradients)
 %needed to reach the optimum? What might be the reason for the very poor performance
 %of the gradient descent algorithm?
-It is difficult to select the best algorithm. Both the Scaled Conjugate Gradient approach and the Quasi-Newton algorithm perform well on this particular problem. The Scaled Conjugate Gradient uses less function evaluations than Quasi-Newton, but Quasi-Newton uses less gradient evaluations. The runtime of both algorithms is almost equal, and they both achieve a successrate of 100\%. It will depend on the computational difficulty of the problem to determine which algorithms is better. \\
+It is difficult to select the best algorithm. Both the Scaled Conjugate Gradient approach and the Quasi-Newton algorithm perform well on this particular problem. The Scaled Conjugate Gradient uses less function evaluations than Quasi-Newton, but Quasi-Newton uses less gradient evaluations. The runtime of both algorithms is almost equal, and they both achieve a success rate of 100\%. It will depend on the computational difficulty of the problem to determine which algorithms is better. \\
 The worst algorithm is clearly gradient descent, since it doesn't find good solutions, even in 100 runs there are no successful solutions. Gradient descent with line search is the slowest algorithm of them all, but because it does produce some useful solutions it is better than the original gradient descent algorithm.
 The reason for the very poor performance of the gradient descent algorithm is probably that if the learning rate is set too high, the algorithms best coordinates will `explode' into infinity. If the learning rate is set to a lower rate, 100 iterations are not enough to get to the optimal point. Because the Rosenberg function has such a narrow valley, finding the optimal value is very difficult.
 
@@ -468,7 +468,7 @@ $w_6$ & 0.18131 & 0.18131 & $1.0486*10^{-10}$ \\ \hline
 \end{table}
 
 \subsection{Experiments}
-We ran all 5 algorithms for 100 iterations, starting from a random point. This is done 100 times to get the averages of the function evaluations, gradient evaluation and the successrate. The relative amount of times an algorithm is successful after 100 iterations is the successrate. An algorithm is succesful when it can predict all four scenarios correctly. The succcess rule is defined in Figure~\ref{fig:sr}. The results are in Table~\ref{table:results}. 
+We ran all 5 algorithms for 100 iterations, starting from a random point. This is done 100 times to get the averages of the function evaluations, gradient evaluation and the success rate. The relative amount of times an algorithm is successful after 100 iterations is the success rate. An algorithm is succesful when it can predict all four scenarios correctly. The succcess rule is defined in Figure~\ref{fig:sr}. The results are in Table~\ref{table:results}. 
 
 
 \begin{figure}[H]
@@ -512,7 +512,7 @@ We ran all 5 algorithms for 100 iterations, starting from a random point. This i
 Another experiment was to see how well an naive produce will perform. We generated 10 million random weights sets and tested how many of the sets were successful. Only 8 were successful. 
 
 \subsection{Conclusion}
-Neural networks can solve the xor problem. The update function of the weights are important, because they have different performances. The successrate of the Quasi-Newton method is the highest, but how important is the successrate? We only need one solution to solve the problem and one successful set of weights is not better compared to another successful set of weigths. Gradient descent and scaled conjugate cannot solve this problem within the chosen boundaries. The naive approach of generating random solutions can solve the problem, it only takes a while. Note, probably all functions will perform better if we used bias nodes in the neural network.
+Neural networks can solve the xor problem. The update function of the weights are important, because they have different performances. The success rate of the Quasi-Newton method is the highest, but how important is the success rate? We only need one solution to solve the problem and one successful set of weights is not better compared to another successful set of weigths. Gradient descent and scaled conjugate cannot solve this problem within the chosen boundaries. The naive approach of generating random solutions can solve the problem, it only takes a while. Note, probably all functions will perform better if we used bias nodes in the neural network.
 
 \newpage
 \section{Task 3: Handwritten Digit Recognition with MLP}
