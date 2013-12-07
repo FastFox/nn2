@@ -338,18 +338,18 @@ As seen in figure~\ref{fig:sep} (c) it is possible to solve the xor problem, but
 We made a multilayer neural network with three nodes and six weights \footnote{The network could be trained much faster when bias nodes are used, but in sight of the assignment there is chosen to do it the hard way and make the problem more difficult.}. Please see Figure~\ref{fig:nn} for an illustration. The network is trained with the data of the truth table and the weights are updated with the algorithms of task 1. The algorithm tries to steer the weights in such a way the errors of the predicted classes and the actual classes are minimized.
 
 \subsection{Implementation}
-\begin{figure}[H]
-	\begin{lstlisting}[caption={The computation of the output value, based on the input values and the weights.}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize]
-	function [y] = xornet(x1, x2, w)
-		net1 = w(1) * x1 + w(2) * x2;
-	 	y1 = phi(net1);
-		net2 = w(3) * x1 + w(4) * x2;
-	 	y2 = phi(net2);
-		net = w(5) * y1 + w(6) * y2;
-	 	y = phi(net);
-	end
-	\end{lstlisting}
-\end{figure}
+%\begin{figure}[H]
+%	\begin{lstlisting}[caption={The computation of the output value, based on the input values and the weights.}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize]
+%	function [y] = xornet(x1, x2, w)
+%		net1 = w(1) * x1 + w(2) * x2;
+%	 	y1 = phi(net1);
+%		net2 = w(3) * x1 + w(4) * x2;
+%	 	y2 = phi(net2);
+%		net = w(5) * y1 + w(6) * y2;
+%	 	y = phi(net);
+%	end
+%	\end{lstlisting}
+%\end{figure}
 
 The xornet function computes the output value. The ($\phi$) sigmoid function is used as the activation function, so the output value will always lay between 0 and 1. The mysse function calculates the sum squared errors of the network. For every scenario of input values (all four combinations of $x_1$ and $x_2$) the computed value is substracted with the actual value (which is found in the truth table). These values are squared and cumulated. The lower the result the better. The dmysse calculates the derivatives, which are used by the 5 algorithms. In order to check the correctness of the function we used the gradchek function of the Netlab toolbox. The results are in table~\ref{table:gradchek}. The values of the analytic column are computed with the functions mysse (Listing~\ref{listing:mysse}) and dmysse (Listing~\ref{listing:dmysse}). The values of the diffs column are approximated with a central difference formula with a very small step size. The deltas are the difference between the two methods and are very near to 0. The reason for this is because the gradcheck function produces an approximation. 
 
