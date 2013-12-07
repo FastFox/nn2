@@ -594,7 +594,7 @@ In figure \ref{fig:errormeasure} you can see the different functions and the way
 %	edata = 0.5*sum(sum((y - t).^2));
 	\begin{eqnarray}
 		error & = & \frac{1}{2}(y - t)^2 \\
-		error & = & t * log(y) + (1 - t) * log(1 - y) \\
+		error & = & -(t * log(y)) + (1 - t) * log(1 - y) \\
 		error & = & t * log(y)
 	\end{eqnarray}
 	\caption{Error measurements in multiple activation functions. (1) Linear (2) Logistic (3) Softmax }
