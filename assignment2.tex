@@ -292,6 +292,8 @@ A perceptron cannot solve this problem, because the classes (different values of
 \end{figure}
 
 As seen in figure~\ref{fig:sep} (c) it is possible to solve the xor problem, but not with a perceptron. We need something more advanced, like a neural network with a hidden layer.
+
+
  
 \begin{figure}[H]
     \centering
@@ -311,7 +313,7 @@ As seen in figure~\ref{fig:sep} (c) it is possible to solve the xor problem, but
 		\path node[hidden neuron] (H-2) at (\layersep,-3 cm) {};
 
 	    	% Draw the output layer node %[yshift=0.5cm]
-	    	\node[output neuron,pin={[pin edge={->}]right:y}, right of=H-1, yshift=-1.0cm] (O) {};
+	    	\node[output neuron,pin={[pin edge={->}]right:$y = \varphi(net) = \varphi(y_1u_1 + y_2u_2)$}, right of=H-1, yshift=-1.0cm] (O) {};
 
 		% Connect every node in the input layer with every node in the
 		% hidden layer.
@@ -329,15 +331,29 @@ As seen in figure~\ref{fig:sep} (c) it is possible to solve the xor problem, but
 		\node[annot,left of=hl] {Input layer};
 		\node[annot,right of=hl] {Output layer};
 	\end{tikzpicture}
-	\caption{The xor neural network.}
+	\caption{Visualitation of the xor net.}
 	\label{fig:nn}
 \end{figure}
+
+
 
 \newpage
 \subsection{Solution}
 We made a multilayer neural network with three nodes and six weights \footnote{The network could be trained much faster when bias nodes are used, but in sight of the assignment there is chosen to do it the hard way and make the problem more difficult.}. Please see Figure~\ref{fig:nn} for an illustration. The network is trained with the data of the truth table and the weights are updated with the algorithms of task 1. The algorithm tries to steer the weights in such a way the errors of the predicted classes and the actual classes are minimized.
 
 \subsection{Implementation}
+\begin{figure}[H]
+	\centering
+	\begin{eqnarray}
+		net_1 &&= w_1x_1 + w_2x_2 \\
+		y_1 &&= \varphi(net_1) \\
+		net_2 &&= w_3x_1 + w_4x_2 \\
+		y_2 &&= \varphi(net_2) \\
+		net &&= w_5y_1 + w_6y_2\\
+		y &&= \varphi(net)
+	\end{eqnarray}
+	\caption{The computation of the output value, based on the input values and the weights.}
+\end{figure}
 %\begin{figure}[H]
 %	\begin{lstlisting}[caption={The computation of the output value, based on the input values and the weights.}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize]
 %	function [y] = xornet(x1, x2, w)
@@ -351,17 +367,27 @@ We made a multilayer neural network with three nodes and six weights \footnote{T
 %	\end{lstlisting}
 %\end{figure}
 
-The xornet function computes the output value. The ($\phi$) sigmoid function is used as the activation function, so the output value will always lay between 0 and 1. The mysse function calculates the sum squared errors of the network. For every scenario of input values (all four combinations of $x_1$ and $x_2$) the computed value is substracted with the actual value (which is found in the truth table). These values are squared and cumulated. The lower the result the better. The dmysse calculates the derivatives, which are used by the 5 algorithms. In order to check the correctness of the function we used the gradchek function of the Netlab toolbox. The results are in table~\ref{table:gradchek}. The values of the analytic column are computed with the functions mysse (Listing~\ref{listing:mysse}) and dmysse (Listing~\ref{listing:dmysse}). The values of the diffs column are approximated with a central difference formula with a very small step size. The deltas are the difference between the two methods and are very near to 0. The reason for this is because the gradcheck function produces an approximation. 
+The xornet function computes the output value. The ($\varphi$) sigmoid function is used as the activation function, so the output value will always lay between 0 and 1. The mysse function calculates the sum squared errors of the network. For every scenario of input values (all four combinations of $x_1$ and $x_2$) the computed value is substracted with the actual value (which is found in the truth table). These values are squared and cumulated. The lower the result the better. The dmysse calculates the derivatives, which are used by the 5 algorithms. In order to check the correctness of the function we used the gradchek function of the Netlab toolbox. The results are in table~\ref{table:gradchek}. The values of the analytic column are computed with the functions mysse (Listing~\ref{listing:mysse}) and dmysse (Listing~\ref{listing:dmysse}). The values of the diffs column are approximated with a central difference formula with a very small step size. The deltas are the difference between the two methods and are very near to 0. The reason for this is because the gradcheck function produces an approximation. 
 
 \begin{figure}[H]
 	\centering
 	\begin{eqnarray}
-	 \phi(x) & = & \frac{1}{1 + e^{-x}} \\
-	   \phi'(x) & = & \phi(x)(1 - \phi(x))
+	 \varphi(x) & = & \frac{1}{1 + e^{-x}} \\
+	   \varphi'(x) & = & \varphi(x)(1 - \varphi(x))
 	\end{eqnarray}
 	\caption{The sigmoid function (1) and the derivative (2).}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\begin{eqnarray}
+		MySSE(w) = && (net(0, 0, w) - 0)^2 + \\
+				&& (net(0, 1, w) - 1)^2 \\
+				&& (net(1, 0, w) - 1)^2 \\
+				&& (net(1, 1, w) - 0)^2
+	\end{eqnarray}
+	\caption{The calculation of the sum squared error of the weights.}
+\end{figure}
 %\begin{figure}[H]
 %	\begin{lstlisting}[caption={The calculation of the sum squared error of the weights.}, label={listing:mysse}, captionpos=b, language=matlab, numbers=left, tabsize=4, frame=single, basicstyle=\footnotesize, breaklines=true]
 %function [d] = mysse(w)
@@ -372,6 +398,20 @@ The xornet function computes the output value. The ($\phi$) sigmoid function is 
 %end
 %	\end{lstlisting}
 %\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{eqnarray}
+		\frac{\partial E}{\partial w_1} &= \Sigma{(y - d)w_5\varphi'(net_1)x_1} \\
+		\frac{\partial E}{\partial w_2} &= \Sigma{(y - d)w_5\varphi'(net_1)x_2} \\
+		\frac{\partial E}{\partial w_3} &= \Sigma{(y - d)w_6\varphi'(net_2)x_1} \\
+		\frac{\partial E}{\partial w_4} &= \Sigma{(y - d)w_6\varphi'(net_2)x_2} \\
+		\frac{\partial E}{\partial w_5} &= \Sigma{(y - d)\varphi'(net)x_1} \\
+		\frac{\partial E}{\partial w_6} &= \Sigma{(y - d)\varphi'(net)x_2}
+	\end{eqnarray}
+	\caption{?}
+\end{figure}
+
 
 
 %\begin{figure}
@@ -401,8 +441,6 @@ The xornet function computes the output value. The ($\phi$) sigmoid function is 
 %end
 %	\end{lstlisting}
 %\end{figure}
-
-
 
 \begin{table}[H]
 	\centering
