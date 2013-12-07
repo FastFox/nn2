@@ -61,7 +61,7 @@ We were given the task to optimize the Rosenbrock function using five different 
 	\label{fig:rosenbrock}
 \end{figure}
 
-\newpage
+%\newpage
 The 5 different algorithms we tested are:
 \begin{itemize}
 \item Gradient descent
@@ -217,7 +217,7 @@ It is difficult to select the best algorithm. Both the Scaled Conjugate Gradient
 The worst algorithm is clearly gradient descent, since it doesn't find good solutions, even in 100 runs there are no successful solutions. Gradient descent with line search is the slowest algorithm of them all, but because it does produce some useful solutions it is better than the original gradient descent algorithm.
 The reason for the very poor performance of the gradient descent algorithm is probably that if the learning rate is set too high, the algorithms best coordinates will `explode' into infinity. If the learning rate is set to a lower rate, 100 iterations are not enough to get to the optimal point. Because the Rosenberg function has such a narrow valley, finding the optimal value is very difficult.
 
-\newpage
+%\newpage
 \section{Task 2}
 \subsection{Problem Description}
 Instead of trying to find the minimum of the Rosenbrock's function in task 1, we were asked to solve the "exclusive or" (xor) problem in task 2. Given two bits, the correct output bit should be returned. Please see table~\ref{tab:tt} for the truth table.
@@ -230,7 +230,7 @@ Instead of trying to find the minimum of the Rosenbrock's function in task 1, we
 		0 & 0 & 0 \\ \hline
 		0 & 1 & 1 \\ \hline
 		1 & 0 & 1 \\ \hline
-		1 & 1 & 1 \\ \hline
+		1 & 1 & 0 \\ \hline
 	\end{tabular}
 	\caption{The truth table. When only one of the two input bits is true, the output bit should be true.}
 	\label{tab:tt}
@@ -339,7 +339,7 @@ As seen in figure~\ref{fig:sep} (c) it is possible to solve the xor problem, but
 
 
 
-\newpage
+%\newpage
 \subsection{Solution}
 We made a multilayer neural network with three nodes and six weights \footnote{The network could be trained much faster when bias nodes are used, but in sight of the assignment there is chosen to do it the hard way and make the problem more difficult.}. Please see Figure~\ref{fig:nn} for an illustration. The network is trained with the data of the truth table and the weights are updated with the algorithms of task 1. The algorithm tries to steer the weights in such a way the errors of the predicted classes and the actual classes are minimized.
 
@@ -389,8 +389,8 @@ Figure~\ref{fig:net} computes the output value. The ($\varphi$) sigmoid (Figure~
 	\centering
 	\begin{eqnarray}
 		E(w) = && (net(0, 0, w) - 0)^2 + \\
-				&& (net(0, 1, w) - 1)^2 \\
-				&& (net(1, 0, w) - 1)^2 \\
+				&& (net(0, 1, w) - 1)^2 + \\
+				&& (net(1, 0, w) - 1)^2 + \\
 				&& (net(1, 1, w) - 0)^2
 	\end{eqnarray}
 	\caption{The calculation of the sum squared error of the weights.}
@@ -493,7 +493,7 @@ We ran all 5 algorithms for 100 iterations, starting from a random point. This i
 %	\end{lstlisting}
 %\end{figure}
 
-\newpage
+%\newpage
 \begin{table}[H]
 	\centering
 	\begin{tabular}{| l | l | l | l | l |}
@@ -545,7 +545,7 @@ We built a Multi-Level perceptron with 256 inputs and 10 outputs. The inputs are
 %    \label{fig:code}
 %\end{figure}
 
-\newpage
+%\newpage
 \subsection{Experiments}
 We first tried to find the best number of hidden nodes. We set the number of training iterations to 100, and used the Scaled Conjugate Gradient as a training method. In the plot of figure \ref{fig:hidden_nodes} you can see that the softmax activation function yields the best results.
 
@@ -573,7 +573,7 @@ Because there is no improvement after about 30 hidden nodes, we set the number o
 
 The values are averages over 20 runs. Quasi-Newton was not tested, because it used too much RAM for our pc (which has 8GB). 
 
-\newpage
+%\newpage
 Finally we tried to find the best value for the number of training iterations. (See table \ref{tab:trainiter})
 \begin{table}[H]
 	\centering
