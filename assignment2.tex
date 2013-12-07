@@ -462,24 +462,24 @@ The goal is of course to achieve the highest classification rate posssible.
 \subsection{Implementation}
 %Pseudocode
 We built a Multi-Level perceptron with 256 inputs and 10 outputs. Each output can be seen as a boolean value that is true if the input was the corresponding digit.
-\begin{figure}[H]
-    \begin{verbatim}        
-    function task_3()
-        %Create the net
-        net = mlp(256,75,10,func);
-        %Train the nets
-        net = mlptrain(net, training', target_training, 100);
-        %Test errors on training
-        output_training = mlpfwd(net, training');
-        %Test errors on testset
-        output_test = mlpfwd(net, testdata');
-        %create confusion matrix for training
-        %create confusion matrix for testset
-    end
-    \end{verbatim}
-    \caption{Pseudo-code of task 1.}
-    \label{fig:code}
-\end{figure}
+%\begin{figure}[H]
+%    \begin{verbatim}        
+%    function task_3()
+%        %Create the net
+%        net = mlp(256,75,10,func);
+%        %Train the nets
+%        net = mlptrain(net, training', target_training, 100);
+%        %Test errors on training
+%        output_training = mlpfwd(net, training');
+%        %Test errors on testset
+%        output_test = mlpfwd(net, testdata');
+%        %create confusion matrix for training
+%        %create confusion matrix for testset
+%    end
+%    \end{verbatim}
+%    \caption{Pseudo-code of task 1.}
+%    \label{fig:code}
+%\end{figure}
 
 \newpage
 \subsection{Experiments}
