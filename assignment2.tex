@@ -171,7 +171,6 @@ In task $1.3$ we were asked to tune both gradient descent algorithms manually. W
 The values are averages over 500 runs. We then tested the best value on 100 runs with 100.000 iterations, and the gradient descent algorithm with line search reached an accuracy of 100\%. The standard gradient descent still got 0\%.
 As you can see the optimal error is somewhere around a learning rate of 0.008, which is why we set the learning rate for the experiment to that value. \\
 
-\newpage
 In order to acquire additional insights into how the algorithms work, we plotted the points that were found after each iteration in the following plot.
 
 \begin{figure}[H]
@@ -204,7 +203,10 @@ In order to acquire additional insights into how the algorithms work, we plotted
 	\label{tab:results}
 \end{table}
 
-In table \ref{tab:results} you can find the results of the different algorithms. All 5 algorithms were run on an Intel Core i5-3470, the values are averages over 100 runs. The parameters used for the algorithms are described in the section `Implementation'. As you can see the gradient descent algorithm, even after optimization, still achieves a successrate of 0\% on the data. If we look at the output-coordinates of the algorithm, it shows that this setting of the learning rate is too high, because the coordinates keep growing until they reach infinity. Gradient descent with line search already works a lot better, but it costs more function evaluations. The other three methods clearly achieve better results on all measured objectives, with less evaluations, a shorter runtime and higher successrates.
+In table \ref{tab:results} you can find the results of the different algorithms. All 5 algorithms were run on an Intel Core i5-3470, the values are averages over 100 runs. 
+%The parameters used for the algorithms are described in the section `Implementation'.
+The amount of maximum iterations are set to 100 and the learning rate is set to 0.001.
+As you can see the gradient descent algorithm, even after optimization, still achieves a successrate of 0\% on the data. If we look at the output-coordinates of the algorithm, it shows that this setting of the learning rate is too high, because the coordinates keep growing until they reach infinity. Gradient descent with line search already works a lot better, but it costs more function evaluations. The other three methods clearly achieve better results on all measured objectives, with less evaluations, a shorter runtime and higher successrates.
 
 \subsection{Conclusions}
 %Which algorithm is best? Which is worst?
