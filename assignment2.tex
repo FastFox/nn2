@@ -100,42 +100,42 @@ In figure \ref{fig:partdiv}, we show the partial derivatives of the Rosenbrock f
     \label{fig:partdiv}
 \end{figure}
 
-\newpage
-In figure \ref{fig:pseudocode} you can see the pseudo-code of the implemented algorithm.
+%\newpage
+%In figure \ref{fig:pseudocode} you can see the pseudo-code of the implemented algorithm.
 
-\begin{figure}[H]
-\begin{verbatim}
-    starting_point = repmat([-1,1],100,1) + 0.5*randn(100,2);
-    options = foptions;         % Standard options
-    options(1) = -1;            % Turn off printing completely
-    options(3) = 1e-8;          % Tolerance in value of function
-    options(14) = 100;          % Max. 100 iterations of algorithm
-    options(18) = 0.001;        % Learning rate    
-    default_options = options;		
-    functionList = {@graddesc, @graddesc, @scg, @conjgrad, @quasinew};
-    for i = 1:100
-        for j = 1:5
-            options = default_options;
-            if(j==1 || j==2)
-                options(18) = 0.008;
-            end
-            if(j==2)
-                options(7) = 1;
-            end
-            tic;
-            [dump, options, dump, dump] = functionList{j}('rosen', starting_point(i,:),
-                                                                        options, 'rosegrad');
-            time = toc;
-            results(i,j,1) = options(10);
-            results(i,j,2) = options(11);
-            results(i,j,3) = time;
-            results(i,j,4) = options(8);
-        end 
-    end  
-\end{verbatim}
-\caption{Pseudo-code of task 1.}
-\label{fig:pseudocode}
-\end{figure}
+%\begin{figure}[H]
+%\begin{verbatim}
+%    starting_point = repmat([-1,1],100,1) + 0.5*randn(100,2);
+%    options = foptions;         % Standard options
+%    options(1) = -1;            % Turn off printing completely
+%    options(3) = 1e-8;          % Tolerance in value of function
+%    options(14) = 100;          % Max. 100 iterations of algorithm
+%    options(18) = 0.001;        % Learning rate    
+%    default_options = options;		
+%    functionList = {@graddesc, @graddesc, @scg, @conjgrad, @quasinew};
+%    for i = 1:100
+%        for j = 1:5
+%            options = default_options;
+%            if(j==1 || j==2)
+%                options(18) = 0.008;
+%            end
+%            if(j==2)
+%                options(7) = 1;
+%            end
+%            tic;
+%            [dump, options, dump, dump] = functionList{j}('rosen', starting_point(i,:),
+%                                                                        options, 'rosegrad');
+%            time = toc;
+%            results(i,j,1) = options(10);
+%            results(i,j,2) = options(11);
+%            results(i,j,3) = time;
+%            results(i,j,4) = options(8);
+%        end 
+%    end  
+%\end{verbatim}
+%\caption{Pseudo-code of task 1.}
+%\label{fig:pseudocode}
+%\end{figure}
 
 \subsection{Experiments}
 \label{sec:experiments}
