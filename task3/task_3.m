@@ -2,7 +2,8 @@ function output = task_3()
     load digits;
     func = 'softmax';
     
-    for i = 1:100
+%    for i = 1:100
+	 for i = [1, 11, 21, 31, 41, 51, 61, 71, 81, 91]
         i
         tic
         %Confusion matrices
@@ -61,9 +62,9 @@ function output = task_3()
                 end
             end
         end
-        cm
+        %cm
         disp(['Percentage correct: ' num2str((trace(cm)/1707)*100)]);
-        cm2
+        %cm2
         disp(['Percentage correct: ' num2str((trace(cm2)/1000)*100)]);
         output(i) = (trace(cm2)/1000)*100;      
     end
