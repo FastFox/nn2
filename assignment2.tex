@@ -94,8 +94,8 @@ We set the options of the algorithm to the default options, with a few changes, 
 
 In figure \ref{fig:partdiv}, we show the partial derivatives of the Rosenbrock function.
 \begin{figure}[H]
-    \[\frac{\rho f}{\rho x} = 400x^3 + 2x - 400*yx - 2\]
-    \[\frac{\rho f}{\rho y} = 200y - 200*x^2\]
+    \[\frac{\partial f}{\partial x} = 400x^3 + 2x - 400*yx - 2\]
+    \[\frac{\partial f}{\partial y} = 200y - 200*x^2\]
     \caption{Partial derivatives of $f$}
     \label{fig:partdiv}
 \end{figure}
@@ -593,9 +593,9 @@ In figure \ref{fig:errormeasure} you can see the different functions and the way
 	\centering
 %	edata = 0.5*sum(sum((y - t).^2));
 	\begin{eqnarray}
-		error & = & \frac{1}{2}(y - t)^2 \\
-		error & = & -(t * log(y)) + (1 - t) * log(1 - y) \\
-		error & = & t * log(y)
+		&& \frac{1}{2}(y - t)^2 \\
+		&&-(t * log(y) + (1 - t) * log(1 - y)) \\
+		&& -t * log(y)
 	\end{eqnarray}
 	\caption{Error measurements in multiple activation functions. (1) Linear (2) Logistic (3) Softmax }
     \label{fig:errormeasure}
