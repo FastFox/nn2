@@ -4,7 +4,7 @@ function output = task_3()
     
 %    for i = 1:100
 	 for i = [1, 11, 21, 31, 41, 51, 61, 71, 81, 91]
-        i
+        %i
         tic
         %Confusion matrices
         cm = zeros(10);
@@ -63,9 +63,11 @@ function output = task_3()
             end
         end
         %cm
-        disp(['Percentage correct: ' num2str((trace(cm)/1707)*100)]);
+        %disp(['Percentage correct: ' num2str((trace(cm)/1707)*100)]);
         %cm2
-        disp(['Percentage correct: ' num2str((trace(cm2)/1000)*100)]);
+        %disp(['Percentage correct: ' num2str((trace(cm2)/1000)*100)]);
+        disp([num2str((trace(cm2)/1000)*100)]);
+
         output(i) = (trace(cm2)/1000)*100;      
     end
 end
